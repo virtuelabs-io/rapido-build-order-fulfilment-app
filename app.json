@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "rapido-build-order-filfilment-app",
-    "slug": "rapido-build-order-filfilment-app",
+    "name": "rapido-build-order-fulfilment-app",
+    "slug": "rapido-build-order-fulfilment-app",
     "platforms": [
       "ios",
       "android",
