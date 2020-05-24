@@ -8,7 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "@virtuelabs-io/rapido-rn-splash-screen": "0.0.7",
+    "@virtuelabs-io/rapido-rn-splash-screen": "0.0.8",
     "expo": "~37.0.3",
     "react": "~16.9.0",
     "react-dom": "~16.9.0",
