@@ -8,5 +8,20 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true
+  },
+  "baseUrl": ".",
+  "paths": {
+    "_components/*": ["./src/components/*"],
+    "_atoms/*": ["./src/components/atoms/*"],
+    "_molecules/*": ["./src/components/molecules/*"],
+    "_organisms/*": ["./src/components/organisms/*"],
+    "_scenes/*": ["./src/scenes/*"],
+    "_navigations/*": ["./src/navigations/*"],
+    "_assets/*": ["./src/assets/*"],
+    "_images/*": ["./src/assets/images/*"],
+    "_fonts/*": ["./src/assets/fonts/*"],
+    "_services/*": ["./src/services/*"],
+    "_utils/*": ["./src/utils/*"],
+    "_styles/*": ["./src/styles/*"]
   }
 }
