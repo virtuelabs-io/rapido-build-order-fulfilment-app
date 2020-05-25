@@ -1,9 +1,9 @@
 import React from 'react';
-import SplashScreen from '@virtuelabs-io/rapido-rn-splash-screen';
+import OrderFulfilment from './src/index';
 
 
 export default function App() {
   return (
-      <SplashScreen name="Rapidobuild.com"/>
+    <OrderFulfilment />
   );
 }
