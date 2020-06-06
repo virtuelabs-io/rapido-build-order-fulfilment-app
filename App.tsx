@@ -1,9 +1,9 @@
 import React from 'react';
-import OrderFulfilment from './src/index';
+import AppNavigation from './src/index';
 
 
 export default function App() {
   return (
-    <OrderFulfilment />
+    <AppNavigation />
   );
 }

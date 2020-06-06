@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "rapido-build-order-fulfilment-app",
+    "name": "Rapido Build Order Fulfilment",
     "slug": "rapido-build-order-fulfilment-app",
     "platforms": [
       "ios",
@@ -23,6 +23,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "This order fulfilment app allows you to receive orders, track and deliver orders successfully without having to miss out on deadlines and ensure customer satisfaction. ",
+    "githubUrl": "https://github.com/virtuelabs-io/rapido-build-order-fulfilment-app"
   }
 }
