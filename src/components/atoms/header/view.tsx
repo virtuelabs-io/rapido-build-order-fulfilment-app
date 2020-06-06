@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { HeaderProps, HeaderState } from './HeaderTypes';
-import { HeaderStyles } from './HeaderStyles';
+import { HeaderProps, HeaderState } from './types';
+import { Styles } from './styles';
 
 
 export class Header extends React.Component<HeaderProps, HeaderState> {
@@ -9,10 +9,10 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
         super(props)
     }
 
-    render(){
+    render(): React.ReactNode {
         return (
-            <View style={HeaderStyles.header}>
-                <Text style={HeaderStyles.headerTitle}>{this.props.title}</Text>
+            <View style={Styles.header}>
+                <Text style={Styles.headerTitle}>{this.props.title}</Text>
             </View>
         );
     }
