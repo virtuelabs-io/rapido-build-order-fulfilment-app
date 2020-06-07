@@ -12,7 +12,8 @@ export class ProfileScreen extends React.Component<ProfileScreenProps, ProfileSc
             title: this.props.route.params.title,
             headerStyle: StackStyleConstants.headerStyle,
             headerTintColor: StackStyleConstants.headerTintColor,
-            headerTitleStyle: StackStyleConstants.headerTitleStyle
+            headerTitleStyle: StackStyleConstants.headerTitleStyle,
+            headerBackTitleStyle: StackStyleConstants.headerBackTitleStyle
         })
     }
 

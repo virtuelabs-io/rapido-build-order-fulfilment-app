@@ -22,5 +22,8 @@ export const StackStyleConstants = {
         fontWeight: 'bold',
         fontSize: 22,
         fontFamily: Utils.getFont(),
+    },
+    headerBackTitleStyle: {
+        fontFamily: Utils.getFont(),
     }
 }

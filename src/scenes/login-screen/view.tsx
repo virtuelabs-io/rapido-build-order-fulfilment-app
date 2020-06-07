@@ -20,7 +20,8 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
             title: this.props.route.params.title,
             headerStyle: StackStyleConstants.headerStyle,
             headerTintColor: StackStyleConstants.headerTintColor,
-            headerTitleStyle: StackStyleConstants.headerTitleStyle
+            headerTitleStyle: StackStyleConstants.headerTitleStyle,
+            headerBackTitleStyle: StackStyleConstants.headerBackTitleStyle
         })
 
         this.fontFamilies = [
