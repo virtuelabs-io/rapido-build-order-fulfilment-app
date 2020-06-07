@@ -20,7 +20,7 @@ export class AppNavigation extends React.Component<AppNavigationProps, AppNaviga
     constructor(props: AppNavigationProps) {
         super(props)
         this.state = {
-            isSignedIn: false
+            isSignedIn: props.isSignedIn
         }
     }
 

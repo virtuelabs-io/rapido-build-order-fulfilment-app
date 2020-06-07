@@ -2,6 +2,7 @@ import React from 'react'
 import { Text, View, Button } from 'react-native'
 import Styles from './styles'
 import { OrdersScreenProps, OrdersScreenState } from './types'
+import { StackStyleConstants } from '../../commons/styles';
 
 
 export class OrdersScreen extends React.Component<OrdersScreenProps, OrdersScreenState> {
@@ -9,13 +10,9 @@ export class OrdersScreen extends React.Component<OrdersScreenProps, OrdersScree
         super(props)
         this.props.navigation.setOptions({
             title: this.props.route.params.title,
-            headerStyle: {
-                backgroundColor: '#f2c811',
-            },
-            headerTintColor: 'black',
-            headerTitleStyle: {
-                fontWeight: 'bold',
-            }
+            headerStyle: StackStyleConstants.headerStyle,
+            headerTintColor: StackStyleConstants.headerTintColor,
+            headerTitleStyle: StackStyleConstants.headerTitleStyle
         })
     }
 
