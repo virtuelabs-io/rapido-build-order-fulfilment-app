@@ -1,8 +1,8 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParams } from '../../models'
+import { SettingsStackNavigationParams } from '../../models'
 
 
-export type SettingsScreenProps = StackScreenProps<RootStackParams, 'Settings'>;
+export type SettingsScreenProps = StackScreenProps<SettingsStackNavigationParams, 'settings'>;
 
 export interface SettingsScreenState {
 

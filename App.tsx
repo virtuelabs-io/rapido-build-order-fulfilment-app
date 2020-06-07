@@ -4,6 +4,6 @@ import AppNavigation from './src/index';
 
 export default function App() {
   return (
-    <AppNavigation />
+      <AppNavigation isSignedIn={false}/>
   );
 }

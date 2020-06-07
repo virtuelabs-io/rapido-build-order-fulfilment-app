@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { Text, View, Button } from 'react-native'
 import Styles from './styles'
-import { SettingsScreenProps, SettingsScreenState } from './types'
+import { DashboardScreenProps, DashboardScreenState } from './types'
 
 
-export class SettingsScreen extends React.Component<SettingsScreenProps, SettingsScreenState> {
-    constructor(props: SettingsScreenProps) {
+export class DashboardScreen extends React.Component<DashboardScreenProps, DashboardScreenState> {
+    constructor(props: DashboardScreenProps, state: DashboardScreenState) {
         super(props)
         this.props.navigation.setOptions({
             title: this.props.route.params.title,
@@ -19,22 +19,13 @@ export class SettingsScreen extends React.Component<SettingsScreenProps, Setting
         })
     }
 
-    profileNavigationHandler = () => {
-        this.props.navigation.navigate("profile", {
-            title: "profile",
-            logout: {
-                logoutHandler: this.props.route.params.helpers.logoutHandler
-            }
-
-        })
-    }
-
     render(): React.ReactNode {
         return (
             <View style={Styles.screen}>
                 <Text>{this.props.route.params.title}</Text>
-                <Button title="Go to Profile" onPress={this.profileNavigationHandler} />
             </View>
         )
     }
 }
+
+

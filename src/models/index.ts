@@ -1,1 +1,7 @@
-export { RootStackParams, HomeStackNavigationParams } from './navigation-params'
+export {
+    RootStackParams,
+    OrdersStackNavigationParams,
+    SettingsStackNavigationParams,
+    DashboardStackNavigationParams,
+    AuthStackNavigationParams
+} from './navigation-params'
