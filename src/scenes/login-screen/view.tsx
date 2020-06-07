@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, Button, ScrollView } from 'react-native'
+import { Text, View, Button, ScrollView, TouchableOpacity } from 'react-native'
 import Styles from './styles'
 import { LoginScreenProps, LoginScreenState } from './types'
 import { StackStyleConstants } from '../../commons/styles';
@@ -9,8 +9,6 @@ interface font {
     name: string
 }
 export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
-
-
 
     private fontFamilies: font[]
 
@@ -64,10 +62,6 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
-                <View style={Styles.itemContainer}>
-                    <Text style={{ ...Styles.textStyle, fontFamily: 'fugaz' }}>{this.props.route.params.title}</Text>
-                    <Button title="Login" onPress={this.props.route.params.loginHandler} />
-                </View>
                 {this.fontFamilies.map((font, index) => {
                     return (
                         <View key={font.id} style={Styles.itemContainer}>
@@ -76,6 +70,11 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
                         </View>
                     )
                 })}
+                <TouchableOpacity onPress={this.props.route.params.loginHandler}>
+                    <View style={Styles.button}>
+                        <Text style={{ ...Styles.buttonTextStyle, fontFamily: 'arima-madurai' }}>{this.props.route.params.title}</Text>
+                    </View>
+                </TouchableOpacity>
             </ScrollView>
 
         )

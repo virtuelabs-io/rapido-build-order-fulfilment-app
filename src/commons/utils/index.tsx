@@ -1,7 +1,7 @@
 import { Platform } from 'react-native';
 
 const getFont = (): string => {
-    return Platform.OS === "android" ? 'open-sans-bold' : 'open-sans-bold'
+    return Platform.OS === "android" ? 'arima-madurai' : 'arima-madurai'
 }
 
 const Utils = {
