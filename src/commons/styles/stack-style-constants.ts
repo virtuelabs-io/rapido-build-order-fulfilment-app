@@ -9,21 +9,14 @@ export const StackStyleConstants = {
         borderBottomWidth: 1,
         borderBottomColor: Colors.codes.grayLighter,
         shadowColor: Colors.codes.black,
-        shadowOffset: {
-            width: 0,
-            height: 2
-        },
-        shadowRadius: 5,
-        shadowOpacity: 0.23,
-        elevation: 4
     },
-    headerTintColor: Colors.secondary,
+    headerTintColor: Colors.primary,
     headerTitleStyle: {
         fontWeight: 'bold',
-        fontSize: 22,
-        fontFamily: Utils.getFont(),
+        fontSize: 24,
+        fontFamily: Utils.getTabTitleFont(),
     },
     headerBackTitleStyle: {
-        fontFamily: Utils.getFont(),
+        fontFamily: Utils.getTabTitleFont(),
     }
 }

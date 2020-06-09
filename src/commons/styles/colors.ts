@@ -17,11 +17,11 @@ const colorCodes = {
 
 export const Colors = {
     codes: colorCodes,
-    primary: colorCodes.yellow,
-    palePrimary: colorCodes.paleYellow,
-    secondary: colorCodes.black,
-    success: colorCodes.blue,
-    info: colorCodes.yellow,
-    warning: colorCodes.orange,
+    primary: colorCodes.black,
+    palePrimary: colorCodes.grayTextLight,
+    secondary: colorCodes.white,
+    success: colorCodes.green,
+    info: colorCodes.blue,
+    warning: colorCodes.yellow,
     danger: colorCodes.red
 }

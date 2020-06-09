@@ -1,45 +1,94 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from '../../commons/styles/colors';
+import Utils from '../../commons/utils/index';
 
 
 export const Styles = StyleSheet.create({
-  screen: {
+    screen: {
         flex: 1,
-        paddingHorizontal: 15,
-        paddingTop: 10,
-        backgroundColor: Colors.codes.white
+        paddingHorizontal: "5%",
+        paddingTop: 10
     },
-    itemContainer: {
+    loginContainer: {
+        backgroundColor: Colors.secondary,
+        marginVertical: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        marginVertical: 10,
-        flexDirection: 'column',
-        borderColor: 'black',
+        paddingVertical: 25,
+        paddingHorizontal: "5%",
+        borderColor: Colors.secondary,
         borderWidth: 0.5,
-        padding: 15,
-        borderRadius: 10
+        borderRadius: 10,
+        shadowColor: Colors.palePrimary,
+        shadowOffset: {
+            width: 0,
+            height: 0
+        },
+        shadowRadius: 5,
+        shadowOpacity: 0.4,
+        elevation: 4
     },
-    textStyle: {
-        marginVertical: 5,
-        fontSize: 20
+    titleText: {
+        fontFamily: Utils.getHeadingFont(),
+        fontSize: 36
+    },
+    phoneNumberContainer: {
+        flexDirection: 'row'
+    },
+    picker: {
+        height: 200,
+        width: "100%"
+    },
+    inputsContainer: {
+        paddingVertical: 10,
+        alignSelf: 'stretch'
+    },
+    generalTextInput: {
+        fontFamily: Utils.getFont(),
+        borderBottomColor: Colors.primary,
+        borderBottomWidth: 1,
+        width: "100%",
+        textAlign: 'left',
+        fontSize: 20,
+        paddingVertical: 10,
+        marginVertical: 10
+    },
+    phoneInput: {
+        fontFamily: Utils.getFont(),
+        borderBottomColor: Colors.primary,
+        borderBottomWidth: 1,
+        width: "80%",
+        textAlign: 'left',
+        fontSize: 20,
+        paddingVertical: 10,
+        marginVertical: 10
+    },
+    dialCodeInput: {
+        fontFamily: Utils.getFont(),
+        borderBottomColor: Colors.primary,
+        borderBottomWidth: 1,
+        width: "20%",
+        textAlign: 'left',
+        fontSize: 20,
+        paddingVertical: 10,
+        marginVertical: 10,
+        color: Colors.palePrimary
     },
     button: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 15,
-        flexDirection: 'column',
-        borderColor: 'black',
-        borderWidth: 0.5,
-        marginHorizontal: 60,
-        paddingVertical: 10,
-        borderRadius: 10,
-        backgroundColor: Colors.secondary,
-        marginBottom: 35
+        paddingVertical: 5,
+        paddingHorizontal: "25%",
+        backgroundColor: Colors.primary,
+        width: "100%"
     },
     buttonTextStyle: {
-        fontSize: 30,
-        color: Colors.codes.white
+        fontSize: 20,
+        color: Colors.secondary,
+        textAlign: 'center'
     },
+    testTextStyle: {
+        marginVertical: 5,
+        fontSize: 20
+    }
 })
 
 export default Styles
