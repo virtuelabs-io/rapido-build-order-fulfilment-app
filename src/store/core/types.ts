@@ -39,11 +39,6 @@ export type SettingsStackNavigationParamsType = {
     }
 }
 
-export type HelpersType = {
-    loginHandler: any
-    logoutHandler: any
-}
-
 export type RootStackParamsType = {
     authStack: AuthStackNavigationParamsType
     dashboardStack: DashboardStackNavigationParamsType
@@ -53,7 +48,6 @@ export type RootStackParamsType = {
 
 export type CoreReduxStateType = {
     rootStackParams: RootStackParamsType
-    helpers: HelpersType | undefined
     coreData: {
         country: Country
         phoneNumber: string

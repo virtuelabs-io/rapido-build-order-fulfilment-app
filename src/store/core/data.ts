@@ -32,10 +32,6 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             }
         }
     },
-    helpers: {
-        loginHandler: undefined,
-        logoutHandler: undefined
-    },
     coreData: {
         country: {
             code: "GB",

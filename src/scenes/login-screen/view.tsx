@@ -171,7 +171,7 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
                 </KeyboardAvoidingView>
                 <View style={Styles.cardContainer}>
                     <Text style={Styles.generalText}>Want to try out our product?</Text>
-                    <TouchableOpacity onPress={() => { }} style={Styles.button}>
+                    <TouchableOpacity onPress={() => { console.log(this.props, this.state) }} style={Styles.button}>
                         <View>
                             <Text style={Styles.buttonTextStyle}>Request access</Text>
                         </View>
@@ -190,9 +190,12 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
     }
 }
 
-const mapStatetoProps = (state: AppState, localProps: LoginScreenProps): {} => {
+const mapStatetoProps = (state: AppState, localProps: LoginScreenProps) => {
     console.log(state, localProps)
-    return {}
+    return {
+        ...localProps,
+        data: state.core.coreData
+    }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): LoginDetailsDispatchProps => {
