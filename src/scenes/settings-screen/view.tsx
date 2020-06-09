@@ -19,11 +19,7 @@ export class SettingsScreen extends React.Component<SettingsScreenProps, Setting
 
     profileNavigationHandler = () => {
         this.props.navigation.navigate("profile", {
-            title: "profile",
-            logout: {
-                logoutHandler: this.props.route.params.helpers.logoutHandler
-            }
-
+            title: "profile"
         })
     }
 

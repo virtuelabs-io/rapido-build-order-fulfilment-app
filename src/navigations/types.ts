@@ -1,7 +1,12 @@
-export interface AppNavigationProps {
-    isSignedIn: Boolean;
+import { Authentication } from "../store/core/types";
+import { CoreReduxStateType } from '../store/core/types'
+
+export type AppNavigationParamProps = {
+    core: CoreReduxStateType
 }
 
-export interface AppNavigationState {
-    isSignedIn: Boolean;
-}
+export type AppNavigationState = { }
+
+export type AppNavigationDispatchProps = { }
+
+export type AppNavigationProps = AppNavigationParamProps & AppNavigationDispatchProps

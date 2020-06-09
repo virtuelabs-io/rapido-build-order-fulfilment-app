@@ -1,5 +1,5 @@
-export interface CardProps {
+export type CardProps = {
 
 }
 
-export interface CardState { }
+export type CardState = { }

@@ -1,12 +1,12 @@
 import React from 'react';
-import { DashboardStackNavigationParams, RootStackParams } from '../../models'
+import { DashboardStackNavigationParamsType, RootStackParamsType } from '../../store/core/types'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import { DashboardScreen } from '../../scenes'
 
 
-const DashboardStackNavigator = createStackNavigator<DashboardStackNavigationParams>();
+const DashboardStackNavigator = createStackNavigator<DashboardStackNavigationParamsType>();
 
-type DashboardStackScreenProps = StackScreenProps<RootStackParams, 'dashboardStack'>;
+type DashboardStackScreenProps = StackScreenProps<RootStackParamsType, 'dashboardStack'>;
 
 export class DashboardStackNavigation extends React.Component<DashboardStackScreenProps> {
 	constructor(props: DashboardStackScreenProps) {

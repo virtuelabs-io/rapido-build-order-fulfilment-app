@@ -1,12 +1,12 @@
 import React from 'react';
-import { OrdersStackNavigationParams, RootStackParams } from '../../models'
+import { OrdersStackNavigationParamsType, RootStackParamsType } from '../../store/core/types'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import { OrdersScreen, OrderDetailsScreen } from '../../scenes'
 
 
-const OrdersStackNavigator = createStackNavigator<OrdersStackNavigationParams>();
+const OrdersStackNavigator = createStackNavigator<OrdersStackNavigationParamsType>();
 
-type OrdersStackScreenProps = StackScreenProps<RootStackParams, 'ordersStack'>;
+type OrdersStackScreenProps = StackScreenProps<RootStackParamsType, 'ordersStack'>;
 
 export class OrdersStackNavigation extends React.Component<OrdersStackScreenProps> {
 	constructor(props: OrdersStackScreenProps) {

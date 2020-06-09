@@ -1,10 +1,11 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import { DashboardStackNavigationParams } from '../../models'
+import { DashboardStackNavigationParamsType } from '../../store/core/types'
 
 
-export type DashboardScreenProps = StackScreenProps<DashboardStackNavigationParams, 'dashboard'>;
+export type DashboardScreenParamProps = StackScreenProps<DashboardStackNavigationParamsType, 'dashboard'>
 
-export interface DashboardScreenState {
+export type DashboardScreenState = { }
 
-}
+export type DashboardScreenDispatchProps = { }
 
+export type DashboardScreenProps = DashboardScreenParamProps & DashboardScreenDispatchProps

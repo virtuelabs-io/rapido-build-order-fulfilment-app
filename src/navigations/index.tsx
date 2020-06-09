@@ -1,27 +1,29 @@
-import React from 'react';
+import React, { Dispatch } from 'react';
 import { NavigationContainer } from '@react-navigation/native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { AuthStackNavigationParams, RootStackParams } from '../models'
 import { DashboardStackNavigation } from './stacks/dasboard-stack'
 import { OrdersStackNavigation } from './stacks/orders-stack'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import { SettingsStackNavigation } from './stacks/settings-stack'
-import { AppNavigationProps, AppNavigationState } from './types';
-import { LoginScreen, ResetPasswordScreen } from '../scenes';
+import { AppNavigationProps, AppNavigationState } from './types'
+import { ResetPasswordScreen } from '../scenes'
+import LoginScreen from '../scenes/login-screen/view'
+import { connect } from 'react-redux'
+import { AppState, AppActionTypes } from '../store';
+import { AppNavigationDispatchProps } from './types'
+import { RootStackParamsType, AuthStackNavigationParamsType } from '../store/core/types';
 
 
-const TabNavigator = createBottomTabNavigator<RootStackParams>();
+const TabNavigator = createBottomTabNavigator<RootStackParamsType>();
 
-const AuthStackNavigator = createStackNavigator<AuthStackNavigationParams>();
+const AuthStackNavigator = createStackNavigator<AuthStackNavigationParamsType>();
 
-type AuthStackScreenProps = StackScreenProps<RootStackParams, 'authStack'>;
-export class AppNavigation extends React.Component<AppNavigationProps, AppNavigationState> {
+type AuthStackScreenProps = StackScreenProps<RootStackParamsType, 'authStack'>;
+
+class AppNavigation extends React.Component<AppNavigationProps, AppNavigationState> {
 
     constructor(props: AppNavigationProps) {
         super(props)
-        this.state = {
-            isSignedIn: props.isSignedIn
-        }
     }
 
     componentDidMount() {
@@ -35,84 +37,43 @@ export class AppNavigation extends React.Component<AppNavigationProps, AppNaviga
 
     loginHandler = () => {
         console.log("Nav Login handler called")
-        this.setState(state => {
-            return {
-                ...state,
-                isSignedIn: true
-            }
-        })
     }
 
     logoutHandler = () => {
         console.log("Nav Logout handler called")
-        this.setState(state => {
-            return {
-                ...state,
-                isSignedIn: false
-            }
-        })
     }
 
     render(): React.ReactNode {
         return (
             <NavigationContainer>
-                {this.state.isSignedIn ? (
+                {this.props.core.coreData.auth.signedIn ? (
                     <TabNavigator.Navigator initialRouteName="dashboardStack">
                         <TabNavigator.Screen
                             name="dashboardStack"
                             component={DashboardStackNavigation}
-                            initialParams={{
-                                dashboard: {
-                                    title: "Dashboard"
-                                }
-                            }}
+                            initialParams={this.props.core.rootStackParams.dashboardStack}
                         />
                         <TabNavigator.Screen
                             name="ordersStack"
                             component={OrdersStackNavigation}
-                            initialParams={{
-                                orders: {
-                                    title: "Orders"
-                                },
-                                orderDetails: {
-                                    title: "Details"
-                                }
-                            }}
+                            initialParams={this.props.core.rootStackParams.ordersStack}
                         />
                         <TabNavigator.Screen
                             name="settingsStack"
                             component={SettingsStackNavigation}
-                            initialParams={{
-                                settings: {
-                                    title: "Settings",
-                                    helpers: {
-                                        logoutHandler: this.logoutHandler
-                                    }
-                                },
-                                profile: {
-                                    title: "Logout",
-                                    logout: {
-                                        logoutHandler: this.logoutHandler
-                                    }
-                                }
-                            }} />
+                            initialParams={this.props.core.rootStackParams.settingsStack} />
                     </TabNavigator.Navigator>
                 ) : (
                         <AuthStackNavigator.Navigator initialRouteName="login">
                             <AuthStackNavigator.Screen
                                 name="login"
                                 component={LoginScreen}
-                                initialParams={{
-                                    title: "Login",
-                                    loginHandler: this.loginHandler
-                                }}
+                                initialParams={this.props.core.rootStackParams.authStack.login}
                             />
                             <AuthStackNavigator.Screen
                                 name="resetPassword"
                                 component={ResetPasswordScreen}
-                                initialParams={{
-                                    title: "Reset Password"
-                                }}
+                                initialParams={this.props.core.rootStackParams.authStack.resetPassword}
                             />
                         </AuthStackNavigator.Navigator>
                     )
@@ -121,3 +82,15 @@ export class AppNavigation extends React.Component<AppNavigationProps, AppNaviga
         )
     }
 }
+
+const mapStatetoProps = (state: AppState, localProps: AppNavigationProps): AppNavigationProps => {
+    return {
+        core: state.core
+    }
+}
+
+const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): AppNavigationDispatchProps => {
+    return { }
+}
+
+export default connect(mapStatetoProps, mapDispatchToProps) (AppNavigation)

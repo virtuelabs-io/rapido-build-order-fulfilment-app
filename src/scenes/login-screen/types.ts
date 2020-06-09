@@ -1,24 +1,29 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import { AuthStackNavigationParams } from '../../models'
+import { AuthStackNavigationParamsType } from '../../store/core/types'
 
-
-interface font {
+type font = {
     id: string
     name: string
 }
 
-export interface LoginDetailsHolder {
+export type LoginDetailsHolder = {
     dialCode: string
     countryCode: string
     phoneNumber: string
     password: string
 }
 
-export type LoginScreenProps = StackScreenProps<AuthStackNavigationParams, 'login'>;
+export type LoginScreenParamProps = StackScreenProps<AuthStackNavigationParamsType, 'login'>
 
-export interface LoginScreenState {
+export type LoginScreenState = {
     fontFamilies: font[]
     sampleText: string
     enableTestUiElements: boolean
     loginDetailsHolder: LoginDetailsHolder
 }
+
+export type LoginDetailsDispatchProps = {
+    signIn: () => void
+}
+
+export type LoginScreenProps = LoginScreenParamProps & LoginDetailsDispatchProps

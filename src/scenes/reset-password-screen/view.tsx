@@ -15,9 +15,6 @@ export class ResetPasswordScreen extends React.Component<ResetPasswordScreenProp
             headerTitleStyle: StackStyleConstants.headerTitleStyle,
             headerBackTitleStyle: StackStyleConstants.headerBackTitleStyle
         })
-        this.state = {
-            phoneNumberProps : this.props.route.params.phoneNumberProps
-        }
     }
 
     render(): React.ReactNode {
@@ -26,10 +23,14 @@ export class ResetPasswordScreen extends React.Component<ResetPasswordScreenProp
                 <Card>
                     <Text>Reset Password</Text>
                     <PhoneNumber
-                        phoneNumber={this.state.phoneNumberProps.phoneNumber}
-                        country={this.state.phoneNumberProps.country}
-                        countryDetailsUpdateHandler={this.state.phoneNumberProps.countryDetailsUpdateHandler}
-                        phoneNumberUpdateHandler={this.state.phoneNumberProps.phoneNumberUpdateHandler}
+                        phoneNumber="1232423431"
+                        country={{
+                            code: "GB",
+                            name: "United Kingdom",
+                            dialCode: "+44"
+                        }}
+                        countryDetailsUpdateHandler={() => { }}
+                        phoneNumberUpdateHandler={() => { }}
                     />
                 </Card>
             </View>

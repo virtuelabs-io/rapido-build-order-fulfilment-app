@@ -1,9 +1,13 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import { SettingsStackNavigationParams } from '../../models'
+import { SettingsStackNavigationParamsType } from '../../store/core/types'
 
 
-export type ProfileScreenProps = StackScreenProps<SettingsStackNavigationParams, 'profile'>;
+export type ProfileScreenParamProps = StackScreenProps<SettingsStackNavigationParamsType, 'profile'>
 
-export interface ProfileScreenState {
+export type ProfileScreenState = { }
 
+export type ProfileScreenDispatchProps = {
+    signOut: () => void
 }
+
+export type ProfileScreenProps = ProfileScreenParamProps & ProfileScreenDispatchProps

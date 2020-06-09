@@ -1,12 +1,13 @@
 import React from 'react';
-import { SettingsStackNavigationParams, RootStackParams } from '../../models'
+import { SettingsStackNavigationParamsType, RootStackParamsType } from '../../store/core/types'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
-import { SettingsScreen, ProfileScreen } from '../../scenes'
+import { SettingsScreen } from '../../scenes'
+import ProfileScreen from '../../scenes/profile-screen/view';
 
 
-const SettingsStackNavigator = createStackNavigator<SettingsStackNavigationParams>();
+const SettingsStackNavigator = createStackNavigator<SettingsStackNavigationParamsType>();
 
-type SettingsStackScreenProps = StackScreenProps<RootStackParams, 'settingsStack'>;
+type SettingsStackScreenProps = StackScreenProps<RootStackParamsType, 'settingsStack'>;
 
 export class SettingsStackNavigation extends React.Component<SettingsStackScreenProps> {
 	constructor(props: SettingsStackScreenProps) {

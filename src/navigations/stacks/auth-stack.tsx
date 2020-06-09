@@ -1,12 +1,12 @@
 import React from 'react';
-import { AuthStackNavigationParams, RootStackParams } from '../../models'
+import { AuthStackNavigationParamsType, RootStackParamsType } from '../../store/core/types'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
-import { LoginScreen, ResetPasswordScreen } from '../../scenes'
+import { ResetPasswordScreen } from '../../scenes'
+import LoginScreen from '../../scenes/login-screen/view';
 
+const AuthStackNavigator = createStackNavigator<AuthStackNavigationParamsType>();
 
-const AuthStackNavigator = createStackNavigator<AuthStackNavigationParams>();
-
-type AuthStackScreenProps = StackScreenProps<RootStackParams, 'authStack'>;
+type AuthStackScreenProps = StackScreenProps<RootStackParamsType, 'authStack'>;
 
 export class AuthStackNavigation extends React.Component<AuthStackScreenProps> {
 	constructor(props: AuthStackScreenProps) {

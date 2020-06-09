@@ -1,5 +1,5 @@
-export interface HeaderProps {
-	title: string;
+export type HeaderProps = {
+	title: string
 }
 
-export interface HeaderState { }
+export type HeaderState = { }

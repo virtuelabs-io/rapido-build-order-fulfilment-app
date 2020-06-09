@@ -1,13 +1,15 @@
-import React from 'react'
+import React, { Dispatch } from 'react'
 import { Text, View, TextInput, ScrollView, TouchableOpacity, Picker, KeyboardAvoidingView, Button } from 'react-native'
 import Styles from './styles'
-import { LoginScreenProps, LoginScreenState } from './types'
+import { LoginScreenProps, LoginScreenState, LoginDetailsDispatchProps } from './types'
 import { StackStyleConstants } from '../../commons/styles';
 import Constants from '../../commons/constants'
 import { Country } from '../../models'
-import { Card } from '../../components/atoms'
+import { AppState, AppActionTypes } from '../../store';
+import { connect } from 'react-redux';
+import { signInUser } from '../../store/core/actions';
 
-export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
+class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
 
     private countrycodes: Country[]
 
@@ -102,13 +104,7 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
             throw "Error fetching selected country codes!"
         }
         this.props.navigation.navigate('resetPassword', {
-            title: "Reset Password",
-            phoneNumberProps: {
-                phoneNumber: this.state.loginDetailsHolder.phoneNumber,
-                country: currentCountry,
-                phoneNumberUpdateHandler: this.phoneNumberUpdateHandler,
-                countryDetailsUpdateHandler: this.countryDetailsUpdateHandler
-            }
+            title: "Reset Password"
         })
     }
 
@@ -163,7 +159,7 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
                             />
                             <Text style={Styles.inputHelpText}>Enter your password</Text>
                         </View>
-                        <TouchableOpacity onPress={this.props.route.params.loginHandler} style={Styles.button}>
+                        <TouchableOpacity onPress={this.props.signIn} style={Styles.button}>
                             <View>
                                 <Text style={Styles.buttonTextStyle}>{this.props.route.params.title}</Text>
                             </View>
@@ -175,7 +171,7 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
                 </KeyboardAvoidingView>
                 <View style={Styles.cardContainer}>
                     <Text style={Styles.generalText}>Want to try out our product?</Text>
-                    <TouchableOpacity onPress={this.props.route.params.loginHandler} style={Styles.button}>
+                    <TouchableOpacity onPress={() => { }} style={Styles.button}>
                         <View>
                             <Text style={Styles.buttonTextStyle}>Request access</Text>
                         </View>
@@ -193,3 +189,16 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
         )
     }
 }
+
+const mapStatetoProps = (state: AppState, localProps: LoginScreenProps): {} => {
+    console.log(state, localProps)
+    return {}
+}
+
+const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): LoginDetailsDispatchProps => {
+    return {
+        signIn: () => dispatch(signInUser())
+    }
+}
+
+export default connect(mapStatetoProps, mapDispatchToProps) (LoginScreen)

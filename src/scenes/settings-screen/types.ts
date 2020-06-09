@@ -1,9 +1,11 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import { SettingsStackNavigationParams } from '../../models'
+import { SettingsStackNavigationParamsType } from '../../store/core/types'
 
 
-export type SettingsScreenProps = StackScreenProps<SettingsStackNavigationParams, 'settings'>;
+export type SettingsScreenParamProps = StackScreenProps<SettingsStackNavigationParamsType, 'settings'>
 
-export interface SettingsScreenState {
+export type SettingsScreenState = {}
 
-}
+export type SettingsScreenDispatchProps = { }
+
+export type SettingsScreenProps = SettingsScreenParamProps & SettingsScreenDispatchProps

@@ -1,10 +1,11 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import { OrdersStackNavigationParams } from '../../models'
+import { OrdersStackNavigationParamsType } from '../../store/core/types'
 
 
-export type OrdersScreenProps = StackScreenProps<OrdersStackNavigationParams, 'orders'>;
+export type OrdersScreenParamProps = StackScreenProps<OrdersStackNavigationParamsType, 'orders'>
 
-export interface OrdersScreenState {
+export type OrdersScreenState = {}
 
-}
+export type OrdersScreenDispatchProps = {}
 
+export type OrdersScreenProps = OrdersScreenParamProps & OrdersScreenDispatchProps

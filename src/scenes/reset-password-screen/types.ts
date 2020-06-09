@@ -1,10 +1,14 @@
 import { StackScreenProps } from '@react-navigation/stack';
-import { AuthStackNavigationParams } from '../../models'
+import { AuthStackNavigationParamsType } from '../../store/core/types'
 import { PhoneNumberProps } from '../../components/atoms';
 
 
-export type ResetPasswordScreenProps = StackScreenProps<AuthStackNavigationParams, 'resetPassword'>;
+export type ResetPasswordParamProps = StackScreenProps<AuthStackNavigationParamsType, 'resetPassword'>
 
-export interface ResetPasswordScreenState {
+export type ResetPasswordScreenState = {
     phoneNumberProps: PhoneNumberProps
 }
+
+export type ResetPasswordScreenDispatchProps = {}
+
+export type ResetPasswordScreenProps = ResetPasswordParamProps & ResetPasswordScreenDispatchProps
