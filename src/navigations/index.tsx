@@ -7,7 +7,7 @@ import { OrdersStackNavigation } from './stacks/orders-stack'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import { SettingsStackNavigation } from './stacks/settings-stack'
 import { AppNavigationProps, AppNavigationState } from './types';
-import { LoginScreen } from '../scenes/login-screen/view';
+import { LoginScreen, ResetPasswordScreen } from '../scenes';
 
 
 const TabNavigator = createBottomTabNavigator<RootStackParams>();
@@ -105,6 +105,13 @@ export class AppNavigation extends React.Component<AppNavigationProps, AppNaviga
                                 initialParams={{
                                     title: "Login",
                                     loginHandler: this.loginHandler
+                                }}
+                            />
+                            <AuthStackNavigator.Screen
+                                name="resetPassword"
+                                component={ResetPasswordScreen}
+                                initialParams={{
+                                    title: "Reset Password"
                                 }}
                             />
                         </AuthStackNavigator.Navigator>

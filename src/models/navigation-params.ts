@@ -2,6 +2,9 @@ export type AuthStackNavigationParams = {
     login: {
         title: string
         loginHandler: any | undefined
+    },
+    resetPassword: {
+        title: string
     }
 }
 

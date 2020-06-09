@@ -1,7 +1,7 @@
 import React from 'react';
 import { AuthStackNavigationParams, RootStackParams } from '../../models'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
-import { LoginScreen } from '../../scenes'
+import { LoginScreen, ResetPasswordScreen } from '../../scenes'
 
 
 const AuthStackNavigator = createStackNavigator<AuthStackNavigationParams>();
@@ -20,6 +20,11 @@ export class AuthStackNavigation extends React.Component<AuthStackScreenProps> {
                     name="login"
                     component={LoginScreen}
                     initialParams={this.props.route.params.login}
+                />
+                <AuthStackNavigator.Screen
+                    name="resetPassword"
+                    component={ResetPasswordScreen}
+                    initialParams={this.props.route.params.resetPassword}
                 />
 			</AuthStackNavigator.Navigator>
 		)

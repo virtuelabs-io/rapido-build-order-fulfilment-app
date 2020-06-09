@@ -95,6 +95,10 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
         })
     }
 
+    resetPasswordHandler = () => {
+        this.props.navigation.navigate('resetPassword', { title: "Reset Password"})
+    }
+
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
@@ -152,7 +156,7 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
                             </View>
                         </TouchableOpacity>
                         <View style={Styles.forgotPasswordContainer}>
-                            <Button title="Forgot your Password?" onPress={() => { }} />
+                            <Button title="Forgot your Password?" onPress={this.resetPasswordHandler} />
                         </View>
                     </View>
                 </KeyboardAvoidingView>

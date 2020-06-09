@@ -42,10 +42,10 @@ export const Styles = StyleSheet.create({
     picker: {
         height: 200,
         width: "100%",
-        alignSelf: 'stretch'
+        alignSelf: 'stretch',
+        marginBottom: 15
     },
     inputsContainer: {
-        // paddingVertical: 10,
         alignSelf: 'stretch'
     },
     generalTextInputContainer: {
