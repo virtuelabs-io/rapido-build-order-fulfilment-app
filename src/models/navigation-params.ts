@@ -1,3 +1,5 @@
+import { PhoneNumberProps } from '../components/atoms';
+
 export type AuthStackNavigationParams = {
     login: {
         title: string
@@ -5,6 +7,7 @@ export type AuthStackNavigationParams = {
     },
     resetPassword: {
         title: string
+        phoneNumberProps: PhoneNumberProps
     }
 }
 

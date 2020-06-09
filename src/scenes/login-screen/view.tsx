@@ -5,6 +5,7 @@ import { LoginScreenProps, LoginScreenState } from './types'
 import { StackStyleConstants } from '../../commons/styles';
 import Constants from '../../commons/constants'
 import { Country } from '../../models'
+import { Card } from '../../components/atoms'
 
 export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
 
@@ -96,7 +97,19 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
     }
 
     resetPasswordHandler = () => {
-        this.props.navigation.navigate('resetPassword', { title: "Reset Password"})
+        const currentCountry = this.countrycodes.find(country => country.code === this.state.loginDetailsHolder.countryCode)
+        if (!currentCountry) {
+            throw "Error fetching selected country codes!"
+        }
+        this.props.navigation.navigate('resetPassword', {
+            title: "Reset Password",
+            phoneNumberProps: {
+                phoneNumber: this.state.loginDetailsHolder.phoneNumber,
+                country: currentCountry,
+                phoneNumberUpdateHandler: this.phoneNumberUpdateHandler,
+                countryDetailsUpdateHandler: this.countryDetailsUpdateHandler
+            }
+        })
     }
 
     render(): React.ReactNode {
