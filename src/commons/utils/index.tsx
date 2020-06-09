@@ -1,21 +1,21 @@
 import { Platform } from 'react-native';
 
-const getTabTitleFont = (): string => {
+const getTabTitleFontFamily = (): string => {
     return Platform.OS === "android" ? 'arima-madurai-ebold' : 'arima-madurai-ebold'
 }
 
-const getHeadingFont = (): string => {
+const getHeadingFontFamily = (): string => {
     return Platform.OS === "android" ? 'arima-madurai-ebold' : 'arima-madurai-ebold'
 }
 
-const getFont = (): string => {
+const getFontFamily = (): string => {
     return Platform.OS === "android" ? 'arima-madurai' : 'arima-madurai'
 }
 
 const Utils = {
-    getFont: getFont,
-    getTabTitleFont: getTabTitleFont,
-    getHeadingFont: getHeadingFont
+    getFontFamily: getFontFamily,
+    getTabTitleFontFamily: getTabTitleFontFamily,
+    getHeadingFontFamily: getHeadingFontFamily
 }
 
 export default Utils

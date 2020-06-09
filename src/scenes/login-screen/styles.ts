@@ -1,6 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { Colors } from '../../commons/styles/colors';
 import Utils from '../../commons/utils/index';
+import Constants from '../../commons/constants/index';
 
 
 export const Styles = StyleSheet.create({
@@ -9,7 +10,7 @@ export const Styles = StyleSheet.create({
         paddingHorizontal: "5%",
         paddingTop: 10
     },
-    loginContainer: {
+    cardContainer: {
         backgroundColor: Colors.secondary,
         marginVertical: 10,
         justifyContent: 'center',
@@ -29,65 +30,82 @@ export const Styles = StyleSheet.create({
         elevation: 4
     },
     titleText: {
-        fontFamily: Utils.getHeadingFont(),
+        fontFamily: Utils.getHeadingFontFamily(),
         fontSize: 36
     },
     phoneNumberContainer: {
-        flexDirection: 'row'
+        paddingVertical: 10
+    },
+    phoneNumberInputContainer: {
+        flexDirection: 'row',
     },
     picker: {
         height: 200,
-        width: "100%"
-    },
-    inputsContainer: {
-        paddingVertical: 10,
+        width: "100%",
         alignSelf: 'stretch'
     },
+    inputsContainer: {
+        // paddingVertical: 10,
+        alignSelf: 'stretch'
+    },
+    generalTextInputContainer: {
+        paddingVertical: 10,
+        alignSelf: 'stretch',
+    },
     generalTextInput: {
-        fontFamily: Utils.getFont(),
+        fontFamily: Utils.getFontFamily(),
         borderBottomColor: Colors.primary,
         borderBottomWidth: 1,
         width: "100%",
         textAlign: 'left',
-        fontSize: 20,
-        paddingVertical: 10,
-        marginVertical: 10
+        fontSize: 20
     },
     phoneInput: {
-        fontFamily: Utils.getFont(),
+        fontFamily: Utils.getFontFamily(),
         borderBottomColor: Colors.primary,
         borderBottomWidth: 1,
         width: "80%",
         textAlign: 'left',
-        fontSize: 20,
-        paddingVertical: 10,
-        marginVertical: 10
+        fontSize: 20
     },
     dialCodeInput: {
-        fontFamily: Utils.getFont(),
+        fontFamily: Utils.getFontFamily(),
         borderBottomColor: Colors.primary,
         borderBottomWidth: 1,
         width: "20%",
         textAlign: 'left',
         fontSize: 20,
-        paddingVertical: 10,
-        marginVertical: 10,
         color: Colors.palePrimary
     },
     button: {
-        paddingVertical: 5,
+        marginVertical: 10,
+        paddingVertical: 7,
         paddingHorizontal: "25%",
         backgroundColor: Colors.primary,
-        width: "100%"
+        width: "100%",
+        borderRadius: 5
     },
     buttonTextStyle: {
-        fontSize: 20,
+        fontSize: 22,
         color: Colors.secondary,
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: Utils.getFontFamily(),
     },
     testTextStyle: {
         marginVertical: 5,
-        fontSize: 20
+        fontSize: 20,
+        fontFamily: Utils.getFontFamily(),
+    },
+    inputHelpText: {
+        fontFamily: Utils.getFontFamily(),
+        color: Colors.codes.grayTextLight
+    },
+    forgotPasswordContainer: {
+        padding: 5
+    },
+    generalText: {
+        fontFamily: Utils.getFontFamily(),
+        fontSize: 18
     }
 })
 

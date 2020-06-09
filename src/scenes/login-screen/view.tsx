@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, TextInput, ScrollView, TouchableOpacity, Picker, KeyboardAvoidingView } from 'react-native'
+import { Text, View, TextInput, ScrollView, TouchableOpacity, Picker, KeyboardAvoidingView, Button } from 'react-native'
 import Styles from './styles'
 import { LoginScreenProps, LoginScreenState } from './types'
 import { StackStyleConstants } from '../../commons/styles';
@@ -98,37 +98,42 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
-                <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={20}>
-                    <View style={Styles.loginContainer}>
+                <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
+                    <View style={Styles.cardContainer}>
                         <Text style={Styles.titleText}>{Constants.APP_NAME}</Text>
                         <View style={Styles.inputsContainer}>
-                            <Picker
-                                selectedValue={this.state.loginDetailsHolder.countryCode}
-                                style={Styles.picker}
-                                onValueChange={this.countryDetailsUpdateHandler}>
-                                {this.countrycodes.map(item => {
-                                    return (
-                                        <Picker.Item key={item.code} label={item.name} value={item.code} />
-                                    )
-                                })}
-                            </Picker>
                             <View style={Styles.phoneNumberContainer}>
-                                <TextInput
-                                    style={Styles.dialCodeInput}
-                                    value={this.state.loginDetailsHolder.dialCode}
-                                    maxLength={5}
-                                    editable={false}
-                                />
-                                <TextInput
-                                    style={Styles.phoneInput}
-                                    value={this.state.loginDetailsHolder.phoneNumber}
-                                    keyboardType="number-pad"
-                                    maxLength={10}
-                                    onChangeText={this.phoneNumberUpdateHandler}
-                                    placeholder="Phone Number"
-                                    enablesReturnKeyAutomatically={true}
-                                />
+                                <Picker
+                                    selectedValue={this.state.loginDetailsHolder.countryCode}
+                                    style={Styles.picker}
+                                    onValueChange={this.countryDetailsUpdateHandler}>
+                                    {this.countrycodes.map(item => {
+                                        return (
+                                            <Picker.Item key={item.code} label={item.name} value={item.code} />
+                                        )
+                                    })}
+                                </Picker>
+                                <View style={Styles.phoneNumberInputContainer}>
+                                    <TextInput
+                                        style={Styles.dialCodeInput}
+                                        value={this.state.loginDetailsHolder.dialCode}
+                                        maxLength={5}
+                                        editable={false}
+                                    />
+                                    <TextInput
+                                        style={Styles.phoneInput}
+                                        value={this.state.loginDetailsHolder.phoneNumber}
+                                        keyboardType="number-pad"
+                                        maxLength={10}
+                                        onChangeText={this.phoneNumberUpdateHandler}
+                                        placeholder="Phone Number"
+                                        enablesReturnKeyAutomatically={true}
+                                    />
+                                </View>
+                                <Text style={Styles.inputHelpText}>Enter your phone number</Text>
                             </View>
+                        </View>
+                        <View style={Styles.generalTextInputContainer}>
                             <TextInput
                                 style={Styles.generalTextInput}
                                 value={this.state.loginDetailsHolder.password}
@@ -139,19 +144,31 @@ export class LoginScreen extends React.Component<LoginScreenProps, LoginScreenSt
                                 secureTextEntry={true}
                                 returnKeyType="next"
                             />
+                            <Text style={Styles.inputHelpText}>Enter your password</Text>
                         </View>
                         <TouchableOpacity onPress={this.props.route.params.loginHandler} style={Styles.button}>
                             <View>
-                                <Text style={{ ...Styles.buttonTextStyle, fontFamily: 'arima-madurai' }}>{this.props.route.params.title}</Text>
+                                <Text style={Styles.buttonTextStyle}>{this.props.route.params.title}</Text>
                             </View>
                         </TouchableOpacity>
+                        <View style={Styles.forgotPasswordContainer}>
+                            <Button title="Forgot your Password?" onPress={() => { }} />
+                        </View>
                     </View>
                 </KeyboardAvoidingView>
+                <View style={Styles.cardContainer}>
+                    <Text style={Styles.generalText}>Want to try out our product?</Text>
+                    <TouchableOpacity onPress={this.props.route.params.loginHandler} style={Styles.button}>
+                        <View>
+                            <Text style={Styles.buttonTextStyle}>Request access</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
                 {this.state.enableTestUiElements ? this.state.fontFamilies.map((font, index) => {
                     return (
-                        <View key={font.id} style={Styles.loginContainer}>
-                            <Text style={{ ...Styles.testTextStyle, fontFamily: font.name, color: 'red' }}>{index + 1} : {font.name}</Text>
-                            <Text style={{ ...Styles.testTextStyle, fontFamily: font.name }}>{this.state.sampleText}</Text>
+                        <View key={font.id} style={Styles.cardContainer}>
+                            <Text style={{ ...Styles.testTextStyle, color: 'red' }}>{index + 1} : {font.name}</Text>
+                            <Text style={Styles.testTextStyle}>{this.state.sampleText}</Text>
                         </View>
                     )
                 }) : null}
