@@ -1,5 +1,6 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import { AuthStackNavigationParamsType } from '../../store/core/types'
+import { Country } from '../../models/country';
 
 type font = {
     id: string
@@ -15,6 +16,14 @@ export type LoginDetailsHolder = {
 
 export type LoginScreenParamProps = StackScreenProps<AuthStackNavigationParamsType, 'login'>
 
+export type LoginScreenDataProps = {
+    data: {
+        country: Country
+        phoneNumber: string
+        password: string
+    }
+}
+
 export type LoginScreenState = {
     fontFamilies: font[]
     sampleText: string
@@ -23,7 +32,12 @@ export type LoginScreenState = {
 }
 
 export type LoginDetailsDispatchProps = {
-    signIn: () => void
+    signInUser: () => void
+    setPhoneNumber: (phoneNumber: string) => void
+    setPassword: (password: string) => void
+    setCountry: (countryCode: string) => void
 }
 
-export type LoginScreenProps = LoginScreenParamProps & LoginDetailsDispatchProps
+export type LoginScreenProps = LoginScreenParamProps &
+    LoginDetailsDispatchProps &
+    LoginScreenDataProps

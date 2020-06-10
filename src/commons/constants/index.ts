@@ -1,9 +1,11 @@
+import { Country } from '../../models/country';
+
+const allCountryCodes: Country[] = require('../../assets/data/country-codes.json')
+
 const Constants = {
     APP_NAME: "Rapidobuild",
-    ENABLE_TEST_UI_ELEMENTS: false,
-    DEFAULT_DIAL_CODE: "+44",
     DEFAULT_COUNTRY_CODE: "GB",
-    COUNTRY_CODES: require('../../assets/data/country-codes.json'),
+    COUNTRY_CODES: allCountryCodes,
     FONTS: {
         'laila-bold': require('../../assets/fonts/Laila-Bold.ttf'),
         'laila-light': require('../../assets/fonts/Laila-Light.ttf'),
@@ -26,5 +28,3 @@ const Constants = {
 }
 
 export default Constants
-
-

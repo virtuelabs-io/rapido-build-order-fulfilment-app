@@ -20,3 +20,13 @@ export const StackStyleConstants = {
         fontFamily: Utils.getTabTitleFontFamily(),
     }
 }
+
+export const getStackStyles = (title: string) => {
+    return {
+        title: title,
+        headerStyle: StackStyleConstants.headerStyle,
+        headerTintColor: StackStyleConstants.headerTintColor,
+        headerTitleStyle: StackStyleConstants.headerTitleStyle,
+        headerBackTitleStyle: StackStyleConstants.headerBackTitleStyle
+    }
+}

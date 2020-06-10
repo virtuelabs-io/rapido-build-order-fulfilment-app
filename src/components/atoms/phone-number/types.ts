@@ -1,11 +1,17 @@
 import { Country } from '../../../models'
+import React from 'react';
+
 
 
 export type PhoneNumberProps = {
-    phoneNumber: string
-    country: Country
-    countryDetailsUpdateHandler: any
-    phoneNumberUpdateHandler: any
+    data: {
+        phoneNumber: string
+        country: Country
+    },
+    operations: {
+        setCountry: (countryCode: string) => void
+        setPhoneNumber: (phoneNumber: string) => void
+    }
 }
 
 export type PhoneNumberState = {

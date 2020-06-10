@@ -1,3 +1,3 @@
 export { Colors } from './colors';
-export { StackStyleConstants } from "./stack-style-constants";
+export { StackStyleConstants, getStackStyles } from "./stack-style-constants";
 

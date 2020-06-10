@@ -1,29 +1,23 @@
 import React, { Dispatch } from 'react'
-import { Text, View, Button, AppState } from 'react-native'
+import { View, Button, AppState } from 'react-native'
+import { RText } from '../../components/atoms'
 import Styles from './styles'
 import { ProfileScreenProps, ProfileScreenState, ProfileScreenDispatchProps } from './types'
-import { StackStyleConstants } from '../../commons/styles';
+import { getStackStyles } from '../../commons/styles';
 import { AppActionTypes } from '../../store';
 import { signOutUser } from '../../store/core/actions';
 import { connect } from 'react-redux';
 
-
 class ProfileScreen extends React.Component<ProfileScreenProps, ProfileScreenState> {
     constructor(props: ProfileScreenProps) {
         super(props)
-        this.props.navigation.setOptions({
-            title: this.props.route.params.title,
-            headerStyle: StackStyleConstants.headerStyle,
-            headerTintColor: StackStyleConstants.headerTintColor,
-            headerTitleStyle: StackStyleConstants.headerTitleStyle,
-            headerBackTitleStyle: StackStyleConstants.headerBackTitleStyle
-        })
+        this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
     }
 
     render(): React.ReactNode {
         return (
             <View style={Styles.screen}>
-                <Text>{this.props.route.params.title}</Text>
+                <RText>{this.props.route.params.title}</RText>
                 <Button title="Logout" onPress={this.props.signOut} />
             </View>
         )

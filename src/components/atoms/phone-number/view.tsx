@@ -20,9 +20,9 @@ export class PhoneNumber extends React.Component<PhoneNumberProps, PhoneNumberSt
             <View style={Styles.phoneNumberComponentContainer}>
                 <View style={Styles.phoneNumberContainer}>
                     <Picker
-                        selectedValue={this.props.country.name}
+                        selectedValue={this.props.data.country.code}
                         style={Styles.picker}
-                        onValueChange={this.props.countryDetailsUpdateHandler}>
+                        onValueChange={this.props.operations.setCountry}>
                         {this.countrycodes.map(item => {
                             return (
                                 <Picker.Item key={item.code} label={item.name} value={item.code} />
@@ -32,16 +32,16 @@ export class PhoneNumber extends React.Component<PhoneNumberProps, PhoneNumberSt
                     <View style={Styles.phoneNumberInputContainer}>
                         <TextInput
                             style={Styles.dialCodeInput}
-                            value={this.props.country.dialCode}
+                            value={this.props.data.country.dialCode}
                             maxLength={5}
                             editable={false}
                         />
                         <TextInput
                             style={Styles.phoneInput}
-                            value={this.props.phoneNumber}
+                            value={this.props.data.phoneNumber}
                             keyboardType="number-pad"
                             maxLength={10}
-                            onChangeText={this.props.phoneNumberUpdateHandler}
+                            onChangeText={this.props.operations.setPhoneNumber}
                             placeholder="Phone Number"
                             enablesReturnKeyAutomatically={true}
                         />

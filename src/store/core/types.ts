@@ -10,7 +10,13 @@ export type AuthStackNavigationParamsType = {
     login: {
         title: string
     },
+    resetCode: {
+        title: string
+    },
     resetPassword: {
+        title: string
+    },
+    finishedReset: {
         title: string
     }
 }
@@ -51,6 +57,11 @@ export type CoreReduxStateType = {
     coreData: {
         country: Country
         phoneNumber: string
+        password: string
         auth: Authentication
+        resetPassword: {
+            otp: string,
+            newPassword: string
+        }
     }
 }

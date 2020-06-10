@@ -1,4 +1,5 @@
 import { CoreReduxStateType } from './types'
+import Constants from '../../commons/constants'
 
 export const CoreReduxInitialState: CoreReduxStateType = {
     rootStackParams: {
@@ -6,8 +7,14 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             login: {
                 title: "Login"
             },
+            resetCode: {
+                title: "Reset Code"
+            },
             resetPassword: {
                 title: "Rest Password"
+            },
+            finishedReset: {
+                title: "Reset Sucessful"
             }
         },
         dashboardStack: {
@@ -33,16 +40,17 @@ export const CoreReduxInitialState: CoreReduxStateType = {
         }
     },
     coreData: {
-        country: {
-            code: "GB",
-            dialCode: "+44",
-            name: "United Kingdom"
-        },
+        country: Constants.COUNTRY_CODES.find(country => country.code === Constants.DEFAULT_COUNTRY_CODE)!,
         phoneNumber: "",
+        password: "",
         auth: {
             signedIn: false,
             authnToken: "",
-            authzToken: "",
+            authzToken: ""
+        },
+        resetPassword: {
+            otp: "",
+            newPassword: ""
         }
     }
 }

@@ -3,9 +3,7 @@ import { Colors } from '../../../commons/styles/colors';
 import Utils from '../../../commons/utils/index';
 
 export const Styles = StyleSheet.create({
-	phoneNumberContainer: {
-        paddingVertical: 10
-    },
+	phoneNumberContainer: { },
     phoneNumberInputContainer: {
         flexDirection: 'row',
     },

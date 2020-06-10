@@ -6,12 +6,14 @@ import { OrdersStackNavigation } from './stacks/orders-stack'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import { SettingsStackNavigation } from './stacks/settings-stack'
 import { AppNavigationProps, AppNavigationState } from './types'
-import { ResetPasswordScreen } from '../scenes'
+import ResetCodeScreen from '../scenes/reset-code-screen/view'
+import ResetPasswordScreen from '../scenes/reset-password-screen/view'
 import LoginScreen from '../scenes/login-screen/view'
 import { connect } from 'react-redux'
 import { AppState, AppActionTypes } from '../store';
 import { AppNavigationDispatchProps } from './types'
 import { RootStackParamsType, AuthStackNavigationParamsType } from '../store/core/types';
+import FinishedResetScreen from '../scenes/finished-reset-screen/view';
 
 
 const TabNavigator = createBottomTabNavigator<RootStackParamsType>();
@@ -24,23 +26,6 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
 
     constructor(props: AppNavigationProps) {
         super(props)
-    }
-
-    componentDidMount() {
-        console.log("App Navigator: componentDidMount")
-    }
-
-
-    componentDidUpdate(prevProps: AppNavigationProps, prevState: AppNavigationState) {
-        console.log("App Navigator: componentDidUpdate")
-    }
-
-    loginHandler = () => {
-        console.log("Nav Login handler called")
-    }
-
-    logoutHandler = () => {
-        console.log("Nav Logout handler called")
     }
 
     render(): React.ReactNode {
@@ -71,9 +56,19 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
                                 initialParams={this.props.core.rootStackParams.authStack.login}
                             />
                             <AuthStackNavigator.Screen
+                                name="resetCode"
+                                component={ResetCodeScreen}
+                                initialParams={this.props.core.rootStackParams.authStack.resetCode}
+                            />
+                            <AuthStackNavigator.Screen
                                 name="resetPassword"
                                 component={ResetPasswordScreen}
                                 initialParams={this.props.core.rootStackParams.authStack.resetPassword}
+                            />
+                            <AuthStackNavigator.Screen
+                                name="finishedReset"
+                                component={FinishedResetScreen}
+                                initialParams={this.props.core.rootStackParams.authStack.finishedReset}
                             />
                         </AuthStackNavigator.Navigator>
                     )
@@ -90,7 +85,7 @@ const mapStatetoProps = (state: AppState, localProps: AppNavigationProps): AppNa
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): AppNavigationDispatchProps => {
-    return { }
+    return {}
 }
 
-export default connect(mapStatetoProps, mapDispatchToProps) (AppNavigation)
+export default connect(mapStatetoProps, mapDispatchToProps)(AppNavigation)
