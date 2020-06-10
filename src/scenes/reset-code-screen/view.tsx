@@ -1,9 +1,9 @@
 import React, { Dispatch } from 'react'
-import { View, KeyboardAvoidingView } from 'react-native'
+import { KeyboardAvoidingView, ScrollView, View } from 'react-native'
 import Styles from './styles'
 import { ResetCodeScreenProps, ResetCodeScreenState, ResetCodeScreenDispatchProps } from './types'
 import { getStackStyles } from '../../commons/styles';
-import { Card, PhoneNumber, RHeadingText, RButton, RText, OTPInput, PasswordInput } from '../../components/atoms'
+import { Card, PhoneNumber, RHeadingText, RButton, RText, Logo } from '../../components/atoms'
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { setCountry, setPhoneNumber, setOTP, setNewPassword } from '../../store/core/actions';
@@ -23,21 +23,23 @@ class ResetCodeScreen extends React.Component<ResetCodeScreenProps, ResetCodeScr
 
     render(): React.ReactNode {
         return (
-            <View style={Styles.screen}>
+            <ScrollView style={Styles.screen}>
                 <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
+                    <Logo />
                     <Card>
-                        <RHeadingText>Reset Password</RHeadingText>
                         <PhoneNumber
                             data={this.props.data}
                             operations={{
                                 setCountry: this.props.setCountry,
                                 setPhoneNumber: this.props.setPhoneNumber
                             }} />
-                        <RText>An OTP will be send to the above number, if its already registered.</RText>
+                        <View style={Styles.textDisplay}>
+                            <RText>An OTP will be send to the above number, if its already registered.</RText>
+                        </View>
                         <RButton name="Send Code" onPress={this.resetPasswordScreenNavigationHandler} />
                     </Card>
                 </KeyboardAvoidingView>
-            </View>
+            </ScrollView>
         )
     }
 }

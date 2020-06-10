@@ -1,4 +1,5 @@
 export { Header } from './header/view';
+import { Logo } from './logo/view';
 export { Card } from './card/view';
 export { PhoneNumber } from './phone-number/view';
 export { PasswordInput } from './password-input/view'
@@ -8,3 +9,4 @@ export { RButton } from './r-button/view';
 export { RText } from './r-text/view';
 export { RHeadingText } from './r-heading-text/view';
 export { OTPInput } from './otp-input/view'
+export { Logo } from './logo/view'

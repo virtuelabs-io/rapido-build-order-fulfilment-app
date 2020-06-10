@@ -13,7 +13,7 @@ export class SettingsScreen extends React.Component<SettingsScreenProps, Setting
 
     profileNavigationHandler = () => {
         this.props.navigation.navigate("profile", {
-            title: "profile"
+            title: "Profile"
         })
     }
 

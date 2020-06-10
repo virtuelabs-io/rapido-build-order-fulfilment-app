@@ -1,6 +1,6 @@
 import React, { Dispatch } from 'react'
 import { View, ScrollView, KeyboardAvoidingView, Button } from 'react-native'
-import { Card, PhoneNumber, PasswordInput, RButton, RHeadingText, RText } from '../../components/atoms'
+import { Card, PhoneNumber, PasswordInput, RButton, RHeadingText, RText, Logo } from '../../components/atoms'
 import Styles from './styles'
 import { LoginScreenProps, LoginScreenState, LoginDetailsDispatchProps } from './types'
 import { getStackStyles } from '../../commons/styles';
@@ -30,8 +30,8 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
         return (
             <ScrollView style={Styles.screen}>
                 <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
+                    <Logo />
                     <Card>
-                        <RHeadingText>{Constants.APP_NAME}</RHeadingText>
                         <PhoneNumber
                             data={{
                                 country: this.props.data.country,
@@ -51,7 +51,7 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
                                 setPassword: this.props.setPassword
                             }}
                         />
-                        <RButton name={this.props.route.params.title} onPress={this.props.signInUser}/>
+                        <RButton name={this.props.route.params.title} onPress={this.props.signInUser} />
                         <View style={Styles.forgotPasswordContainer}>
                             <Button title="Forgot your Password?" onPress={this.resetCodeScreenNavigationHandler} />
                         </View>
@@ -59,7 +59,7 @@ class LoginScreen extends React.Component<LoginScreenProps, LoginScreenState> {
                 </KeyboardAvoidingView>
                 <Card>
                     <RText>Want to try out our product?</RText>
-                    <RButton name="Request access" onPress={() => { console.log(this.props) }}/>
+                    <RButton name="Request access" onPress={() => { console.log(this.props) }} />
                 </Card>
             </ScrollView>
         )

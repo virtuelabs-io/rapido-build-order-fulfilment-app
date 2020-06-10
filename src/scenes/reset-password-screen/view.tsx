@@ -1,9 +1,9 @@
 import React, { Dispatch } from 'react'
-import { View, KeyboardAvoidingView } from 'react-native'
+import { ScrollView, KeyboardAvoidingView } from 'react-native'
 import Styles from './styles'
 import { ResetPasswordScreenProps, ResetPasswordScreenState, ResetPasswordScreenDispatchProps } from './types'
 import { getStackStyles } from '../../commons/styles';
-import { Card, RButton, RHeadingText, OTPInput, PasswordInput } from '../../components/atoms'
+import { Card, RButton, RText, OTPInput, PasswordInput, Logo } from '../../components/atoms'
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { setOTP, setNewPassword } from '../../store/core/actions';
@@ -23,10 +23,11 @@ class ResetPasswordScreen extends React.Component<ResetPasswordScreenProps, Rese
 
     render(): React.ReactNode {
         return (
-            <View style={Styles.screen}>
+            <ScrollView style={Styles.screen}>
                 <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
+                    <Logo />
                     <Card>
-                        <RHeadingText>An OTP has been sent to ({this.props.data.country.dialCode}) {this.props.data.phoneNumber}</RHeadingText>
+                        <RText>An OTP has been sent to ({this.props.data.country.dialCode}) {this.props.data.phoneNumber}</RText>
                         <OTPInput
                             data={{
                                 inputHelperText: 'Enter OTP',
@@ -48,7 +49,7 @@ class ResetPasswordScreen extends React.Component<ResetPasswordScreenProps, Rese
                         <RButton name="Confirm" onPress={this.finishedResetScreenNavigationHandler} />
                     </Card>
                 </KeyboardAvoidingView>
-            </View>
+            </ScrollView>
         )
     }
 }

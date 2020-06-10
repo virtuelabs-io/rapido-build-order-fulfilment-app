@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import Styles from './styles'
 import { FinishedResetScreenProps, FinishedResetScreenState } from './types'
 import { getStackStyles } from '../../commons/styles';
-import { RText, RButton, RHeadingText, Card } from '../../components/atoms'
+import { RText, RButton, RHeadingText, Card, Logo } from '../../components/atoms'
 
 class FinishedResetScreen extends React.Component<FinishedResetScreenProps, FinishedResetScreenState> {
 
@@ -21,6 +21,7 @@ class FinishedResetScreen extends React.Component<FinishedResetScreenProps, Fini
     render(): React.ReactNode {
         return (
             <View style={Styles.screen}>
+                <Logo />
                 <Card>
                     <RHeadingText>Success!</RHeadingText>
                     <RText>Your password has been reset sucessfully. You can now try to login.</RText>
