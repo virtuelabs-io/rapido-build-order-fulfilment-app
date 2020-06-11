@@ -1,5 +1,6 @@
 import { StyleSheet } from 'react-native';
 import Utils from '../../../commons/utils/index';
+import { Colors } from '../../../commons/styles/colors';
 
 export const Styles = StyleSheet.create({
     logoContainer: {
@@ -14,7 +15,8 @@ export const Styles = StyleSheet.create({
     },
     headingText: {
         fontFamily: Utils.getHeadingFontFamily(),
-        fontSize: 30
+        fontSize: 30,
+        color: Colors.primary
     }
 });
 

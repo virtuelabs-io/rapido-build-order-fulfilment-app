@@ -8,7 +8,7 @@ export const Styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         paddingVertical: 5,
-        paddingHorizontal: 20,
+        paddingHorizontal: "5%",
         borderColor: Colors.secondary,
         borderWidth: 0.5,
         borderRadius: 10,
