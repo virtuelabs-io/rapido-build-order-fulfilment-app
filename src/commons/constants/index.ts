@@ -6,6 +6,7 @@ const Constants = {
     APP_NAME: "Rapidobuild",
     DEFAULT_COUNTRY_CODE: "GB",
     COUNTRY_CODES: allCountryCodes,
+    DEFAULT_ICON: "feather",
     FONTS: {
         'laila-bold': require('../../assets/fonts/Laila-Bold.ttf'),
         'laila-light': require('../../assets/fonts/Laila-Light.ttf'),
@@ -24,6 +25,39 @@ const Constants = {
         'arima-madurai-light': require('../../assets/fonts/ArimaMadurai-Light.ttf'),
         'arima-madurai-medium': require('../../assets/fonts/ArimaMadurai-Medium.ttf'),
         'arima-madurai-thin': require('../../assets/fonts/ArimaMadurai-Thin.ttf')
+    },
+    NAV: {
+        stackNames: {
+            dashboardStack: {
+                name: "dashboardStack",
+                icon: "pie-chart",
+                package: "Feather",
+                displayText: "Dashboard"
+            },
+            ordersStack: {
+                name: "ordersStack",
+                icon: "package",
+                package: "Feather",
+                displayText: "Orders"
+            },
+            settingsStack: {
+                name: "settingsStack",
+                icon: "settings",
+                package: "feather",
+                displayText: "Settings"
+            }
+        },
+        screenNames: {
+            login: "login",
+            resetCode: "resetCode",
+            resetPassword: "resetPassword",
+            finishedReset: "finishedReset",
+            dashboard: "dashboard",
+            orders: "orders",
+            orderDetails: "orderDetails",
+            settings: "settings",
+            profile: "profile"
+        }
     }
 }
 

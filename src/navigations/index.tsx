@@ -14,6 +14,8 @@ import { AppState, AppActionTypes } from '../store';
 import { AppNavigationDispatchProps } from './types'
 import { RootStackParamsType, AuthStackNavigationParamsType } from '../store/core/types';
 import FinishedResetScreen from '../scenes/finished-reset-screen/view';
+import { getTabIcon, getTabBarStyles, getTabLabel } from '../commons/styles/stack-style-constants';
+import { Feather } from '@expo/vector-icons';
 
 
 const TabNavigator = createBottomTabNavigator<RootStackParamsType>();
@@ -32,7 +34,17 @@ class AppNavigation extends React.Component<AppNavigationProps, AppNavigationSta
         return (
             <NavigationContainer>
                 {this.props.core.coreData.auth.signedIn ? (
-                    <TabNavigator.Navigator initialRouteName="dashboardStack">
+                    <TabNavigator.Navigator
+                        initialRouteName="dashboardStack"
+                        screenOptions={(props) => ({
+                            tabBarIcon: (tabProps: any) => {
+                                return (
+                                    <Feather name={getTabIcon(props.route.name)} size={tabProps.size + 2} color={tabProps.color} />
+                                )
+                            },
+                            tabBarLabel: getTabLabel(props.route.name)
+                        })}
+                        tabBarOptions={getTabBarStyles()}>
                         <TabNavigator.Screen
                             name="dashboardStack"
                             component={DashboardStackNavigation}

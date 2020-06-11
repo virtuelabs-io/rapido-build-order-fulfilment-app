@@ -12,6 +12,8 @@ const colorCodes = {
     grayLighter: '#ededed',
     grayLightest: '#fafafa',
     grayTextLight: '#6d6d6d',
+    greyShadeInActive: '#D3D3D3',
+    silver: '#C0C0C0',
     paleYellow: "#fff5cf"
 }
 
@@ -23,5 +25,6 @@ export const Colors = {
     success: colorCodes.green,
     info: colorCodes.blue,
     warning: colorCodes.yellow,
-    danger: colorCodes.red
+    danger: colorCodes.red,
+    inActive: colorCodes.silver
 }
