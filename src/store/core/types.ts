@@ -28,6 +28,9 @@ export type OrdersStackNavigationParamsType = {
     orderDetails: {
         title: string
     }
+    orderEvents: {
+        title: string
+    }
 }
 
 export type DashboardStackNavigationParamsType = {

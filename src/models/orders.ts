@@ -2,7 +2,7 @@ export type OrderHeader = {
     orderId: number
     receiptEmail: string
     guest: boolean
-    orderStatusId: string
+    orderStatus: string
     orderPrice: number
     createdOn: string
     vat: number
@@ -18,9 +18,12 @@ export type OrderHeader = {
     postcode: string
     dueDate: string
     currency: string
+    changedBy: string
+    lastUpdatedOn: string
 }
 
 export type OrderItemDetails = {
+    orderId: number
     productId: number
     quantity: number
     unitPrice: number
@@ -28,3 +31,13 @@ export type OrderItemDetails = {
     totalPrice: number
     itemName: string
 }
+
+export type OrderEvents = {
+    orderId: number
+    eventDate: string
+    prevStatus: string
+    changedState: string
+    changedBy: string
+    comment: string
+}
+

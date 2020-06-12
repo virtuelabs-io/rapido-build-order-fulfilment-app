@@ -27,7 +27,10 @@ export const CoreReduxInitialState: CoreReduxStateType = {
                 title: "Orders"
             },
             orderDetails: {
-                title: "Order Details"
+                title: "Details"
+            },
+            orderEvents: {
+                title: "Events"
             }
         },
         settingsStack: {

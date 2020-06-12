@@ -4,7 +4,6 @@ import { Card, PhoneNumber, PasswordInput, RButton, RHeadingText, RText, Logo } 
 import Styles from './styles'
 import { LoginScreenProps, LoginScreenState, LoginDetailsDispatchProps } from './types'
 import { getStackStyles } from '../../commons/styles';
-import Constants from '../../commons/constants'
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { signInUser, setCountry, setPhoneNumber, setPassword } from '../../store/core/actions';

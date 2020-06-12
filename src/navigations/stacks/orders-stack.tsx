@@ -1,7 +1,9 @@
 import React from 'react';
 import { OrdersStackNavigationParamsType, RootStackParamsType } from '../../store/core/types'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
-import { OrdersScreen, OrderDetailsScreen } from '../../scenes'
+import OrderDetailsScreen from '../../scenes/order-details-screen/view'
+import OrdersScreen from '../../scenes/orders-screen/view'
+import OrderEventsScreen from '../../scenes/order-events-screen/view';
 
 
 const OrdersStackNavigator = createStackNavigator<OrdersStackNavigationParamsType>();
@@ -10,7 +12,7 @@ type OrdersStackScreenProps = StackScreenProps<RootStackParamsType, 'ordersStack
 
 export class OrdersStackNavigation extends React.Component<OrdersStackScreenProps> {
 	constructor(props: OrdersStackScreenProps) {
-		super(props)
+        super(props)
 	}
 
 	render(): React.ReactNode {
@@ -25,6 +27,11 @@ export class OrdersStackNavigation extends React.Component<OrdersStackScreenProp
                     name="orderDetails"
                     component={OrderDetailsScreen}
                     initialParams={this.props.route.params.orderDetails}
+                />
+                <OrdersStackNavigator.Screen
+                    name="orderEvents"
+                    component={OrderEventsScreen}
+                    initialParams={this.props.route.params.orderEvents}
                 />
 			</OrdersStackNavigator.Navigator>
 		)

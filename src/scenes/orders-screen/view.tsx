@@ -1,20 +1,23 @@
-import React from 'react'
+import React, { Dispatch } from 'react'
 import { View, Button } from 'react-native'
 import { RText } from '../../components/atoms'
 import Styles from './styles'
-import { OrdersScreenProps, OrdersScreenState } from './types'
+import { OrdersScreenProps, OrdersScreenState, OrdersScreenDispatchProps } from './types'
 import { getStackStyles } from '../../commons/styles';
+import { AppState, AppActionTypes } from '../../store';
+import { connect } from 'react-redux';
+import { getAllOrderHeaders } from '../../store/orders/actions';
 
-export class OrdersScreen extends React.Component<OrdersScreenProps, OrdersScreenState> {
-    constructor(props: OrdersScreenProps, state: OrdersScreenState) {
+class OrdersScreen extends React.Component<OrdersScreenProps, OrdersScreenState> {
+    constructor(props: OrdersScreenProps) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
     }
 
     detailsNavigationHandler = () => {
-        this.props.navigation.navigate("orderDetails", {
-            title: "Works"
-        })
+        // @ts-ignore
+        // REASON: state picked up from redux
+        this.props.navigation.navigate("orderDetails")
     }
 
     render(): React.ReactNode {
@@ -28,3 +31,17 @@ export class OrdersScreen extends React.Component<OrdersScreenProps, OrdersScree
 }
 
 
+const mapStatetoProps = (state: AppState, localProps: OrdersScreenProps): OrdersScreenProps => {
+    return {
+        ...localProps,
+        data: state.orders.headerRecords
+    }
+}
+
+const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): OrdersScreenDispatchProps => {
+    return {
+        refreshOrders: (options: any) => dispatch(getAllOrderHeaders({}))
+    }
+}
+
+export default connect(mapStatetoProps, mapDispatchToProps)(OrdersScreen)
