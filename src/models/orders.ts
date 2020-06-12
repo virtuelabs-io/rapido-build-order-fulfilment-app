@@ -33,6 +33,7 @@ export type OrderItemDetails = {
 }
 
 export type OrderEvents = {
+    id: number
     orderId: number
     eventDate: string
     prevStatus: string
