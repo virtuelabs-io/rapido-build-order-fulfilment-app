@@ -37,7 +37,7 @@ export interface GetOrderHeader {
 
 export interface GetItemDetails {
     type: typeof GET_ITEM_DETAILS
-    data: any
+    orderId: number
 }
 
 export interface GetOrderEvents {
@@ -89,10 +89,11 @@ export const getOrderHeader = (data: any): OrdersActionTypes => {
     }
 }
 
-export const getItemDetails = (data: any): OrdersActionTypes => {
+export const getItemDetails = (orderId: number): OrdersActionTypes => {
+    console.log(`Action received: ${orderId}`)
     return {
         type: GET_ITEM_DETAILS,
-        data: data
+        orderId: orderId
     }
 }
 

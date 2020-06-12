@@ -30,7 +30,7 @@ const Constants = {
         stackNames: {
             dashboardStack: {
                 name: "dashboardStack",
-                icon: "pie-chart",
+                icon: "bar-chart-2",
                 package: "Feather",
                 displayText: "Dashboard"
             },

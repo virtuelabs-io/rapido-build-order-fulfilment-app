@@ -11,6 +11,7 @@ class OrderDetailsScreen extends React.Component<OrderDetailsScreenProps, OrderD
     constructor(props: OrderDetailsScreenProps, state: OrderDetailsScreenState) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+        console.log(props)
     }
 
     orderEventsScreenNavigationHandler = () => {

@@ -1,4 +1,5 @@
 import { Country } from '../../models/country';
+import { OrderHeader } from '../../models/orders';
 
 export type Authentication = {
     signedIn: boolean

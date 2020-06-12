@@ -15,7 +15,9 @@ const colorCodes = {
     greyShadeInActive: '#D3D3D3',
     silver: '#C0C0C0',
     paleYellow: "#fff5cf",
-    vizColor: "#82E8CB"
+    vizColor: "#82E8CB",
+    statusPill: "#D1FBCA",
+    dueDatePill: "#E5DFB9"
 }
 
 // const colorScheme = ["#188977", "#1D9A6C", "#39A96B", "#56B870", "#74C67A", "#99D492", "#BFE1B0", "#DEEDCF"];

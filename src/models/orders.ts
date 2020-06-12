@@ -41,4 +41,3 @@ export type OrderEvents = {
     changedBy: string
     comment: string
 }
-

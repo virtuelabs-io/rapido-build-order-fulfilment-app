@@ -12,6 +12,7 @@ export type OrdersScreenDataProps = {
 
 export type OrdersScreenDispatchProps = {
     refreshOrders: (options: any) => void
+    selectOrder: (selectedOrderId: number) => void
 }
 
 export type OrdersScreenProps =
