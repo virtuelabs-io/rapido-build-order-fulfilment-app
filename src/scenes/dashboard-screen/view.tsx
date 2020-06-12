@@ -1,113 +1,72 @@
-import React from 'react'
+import React, { Dispatch } from 'react'
 import { ScrollView, View, Dimensions, Text } from 'react-native'
 import { RHeadingText, RText } from '../../components/atoms'
 import Styles from './styles'
-import { DashboardScreenProps, DashboardScreenState } from './types'
+import { DashboardScreenProps, DashboardScreenState, DashboardScreenDispatchProps } from './types'
 import { getStackStyles } from '../../commons/styles';
-import { VictoryBar, VictoryChart, VictoryAxis } from "victory-native"
-import { barChartProps, BarChartProps } from '../../commons/styles'
-import { DummyData } from '../../models/dummy-data'
 import { Card } from '../../components/atoms/card/view';
+import { AppState, AppActionTypes } from '../../store';
+import { setTodaysKPIs, setAllOrdersData, setDeliveriesData, setReturnsData, set30DaySummaryData } from '../../store/analytics/actions'
+import { connect } from 'react-redux';
+import { FourKPI } from '../../components/atoms/four-kpis/view';
+import { RBarChart } from '../../components/atoms/r-bar-chart/view'
+import { RPieChart } from '../../components/atoms/r-pie-chart/view';
 
-export class DashboardScreen extends React.Component<DashboardScreenProps, DashboardScreenState> {
-    private barChartConfig: BarChartProps
-    private screenWidth: number
-    private padding: number
+class DashboardScreen extends React.Component<DashboardScreenProps, DashboardScreenState> {
+
     constructor(props: DashboardScreenProps, state: DashboardScreenState) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
-        this.barChartConfig = barChartProps
-        this.barChartConfig.data = DummyData.barType.slice(0, 60)
-        this.barChartConfig.xFunc = (datum) => datum.id
-        this.barChartConfig.yFunc = (datum) => datum.noOfOrders
-        this.screenWidth = Math.round(Dimensions.get('window').width * 0.79);
-        this.padding = Math.round(Dimensions.get('window').width * 0.01);
-        console.log(this.screenWidth, this.padding)
     }
 
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
-                <RHeadingText>New Orders</RHeadingText>
+                <RHeadingText>Today</RHeadingText>
                 <Card>
-                    <View style={Styles.kpiParentContainer}>
-                        <View style={Styles.kpiContainer}>
-                            <Text style={Styles.kpiLabel}>Today</Text>
-                            <Text style={Styles.kpiValue}>80</Text>
-                        </View>
-                        <View style={Styles.kpiContainer}>
-                        <Text style={Styles.kpiLabel}>Yesterday</Text>
-                            <Text style={Styles.kpiValue}>120</Text>
-                        </View>
-                        <View style={Styles.kpiContainer}>
-                        <Text style={Styles.kpiLabel}>Last 7 Days</Text>
-                            <Text style={Styles.kpiValue}>280</Text>
-                        </View>
-                        <View style={Styles.kpiContainer}>
-                        <Text style={Styles.kpiLabel}>Last 30 Days</Text>
-                            <Text style={Styles.kpiValue}>720</Text>
-                        </View>
-                    </View>
-                    <View>
-                        <Text style={Styles.vizHeader}>60 Day Trend</Text>
-                        <VictoryChart
-                            width={this.screenWidth}
-                            height={this.barChartConfig.chartBaseProps.height}
-                            domain={{ y: this.barChartConfig.chartBaseProps.domain.y }}
-                            animate={this.barChartConfig.chartBaseProps.animation}
-                            padding={this.padding}>
-                            <VictoryBar
-                                data={this.barChartConfig.data}
-                                x={this.barChartConfig.xFunc}
-                                y={this.barChartConfig.yFunc}
-                                style={this.barChartConfig.chartBaseProps.generalStyles}
-                                barRatio={this.barChartConfig.chartBaseProps.barRatio}
-                            />
-                            <VictoryAxis style={this.barChartConfig.chartBaseProps.axisStyles} />
-                        </VictoryChart>
-                    </View>
+                    <FourKPI data={this.props.data.analyticsData.today} />
                 </Card>
-                <RHeadingText>Delivered Orders</RHeadingText>
+                <RHeadingText>All Orders</RHeadingText>
                 <Card>
-                    <View style={Styles.kpiParentContainer}>
-                        <View style={Styles.kpiContainer}>
-                            <Text style={Styles.kpiLabel}>Today</Text>
-                            <Text style={Styles.kpiValue}>10</Text>
-                        </View>
-                        <View style={Styles.kpiContainer}>
-                        <Text style={Styles.kpiLabel}>Yesterday</Text>
-                            <Text style={Styles.kpiValue}>34</Text>
-                        </View>
-                        <View style={Styles.kpiContainer}>
-                        <Text style={Styles.kpiLabel}>Last 7 Days</Text>
-                            <Text style={Styles.kpiValue}>280</Text>
-                        </View>
-                        <View style={Styles.kpiContainer}>
-                        <Text style={Styles.kpiLabel}>Last 30 Days</Text>
-                            <Text style={Styles.kpiValue}>720</Text>
-                        </View>
-                    </View>
-                    <View>
-                        <Text style={Styles.vizHeader}>60 Day Trend</Text>
-                        <VictoryChart
-                            width={this.screenWidth}
-                            height={this.barChartConfig.chartBaseProps.height}
-                            domain={{ y: this.barChartConfig.chartBaseProps.domain.y }}
-                            animate={this.barChartConfig.chartBaseProps.animation}
-                            padding={this.padding}>
-                            <VictoryBar
-                                data={this.barChartConfig.data}
-                                x={this.barChartConfig.xFunc}
-                                y={this.barChartConfig.yFunc}
-                                style={this.barChartConfig.chartBaseProps.generalStyles}
-                                barRatio={this.barChartConfig.chartBaseProps.barRatio}
-                            />
-                            <VictoryAxis style={this.barChartConfig.chartBaseProps.axisStyles} />
-                        </VictoryChart>
-                    </View>
+                    <FourKPI data={this.props.data.analyticsData.allOrders.kpiHolder} />
+                    <RBarChart data={{ barChartProps: this.props.data.analyticsData.allOrders.viz }}/>
+                </Card>
+                <RHeadingText>Deliveries</RHeadingText>
+                <Card>
+                    <FourKPI data={this.props.data.analyticsData.deliveries.kpiHolder} />
+                    <RBarChart data={{ barChartProps: this.props.data.analyticsData.deliveries.viz }}/>
+                </Card>
+                <RHeadingText>Returns</RHeadingText>
+                <Card>
+                    <FourKPI data={this.props.data.analyticsData.returns.kpiHolder} />
+                    <RBarChart data={{ barChartProps: this.props.data.analyticsData.returns.viz }}/>
+                </Card>
+                <RHeadingText>30 Day Summary</RHeadingText>
+                <Card>
+                    <RPieChart data={{ pieChartProps: this.props.data.analyticsData.summary }}/>
                 </Card>
             </ScrollView>
         )
     }
 }
 
+const mapStatetoProps = (state: AppState, localProps: DashboardScreenProps): DashboardScreenProps => {
+    return {
+        ...localProps,
+        data: {
+            analyticsData: state.analytics
+        }
+    }
+}
+
+const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): DashboardScreenDispatchProps => {
+    return {
+        setTodaysKPIs: (data: any) => dispatch(setTodaysKPIs(data)),
+        setAllOrdersData: (data: any) => dispatch(setAllOrdersData(data)),
+        setAllDeliveriesData: (data: any) => dispatch(setDeliveriesData(data)),
+        setAllReturnsData: (data: any) => dispatch(setReturnsData(data)),
+        set30DaySummaryData: (data: any) => dispatch(set30DaySummaryData(data))
+    }
+}
+
+export default connect(mapStatetoProps, mapDispatchToProps)(DashboardScreen)

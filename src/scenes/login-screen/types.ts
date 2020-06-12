@@ -24,12 +24,7 @@ export type LoginScreenDataProps = {
     }
 }
 
-export type LoginScreenState = {
-    fontFamilies: font[]
-    sampleText: string
-    enableTestUiElements: boolean
-    loginDetailsHolder: LoginDetailsHolder
-}
+export type LoginScreenState = { }
 
 export type LoginDetailsDispatchProps = {
     signInUser: () => void
@@ -38,6 +33,7 @@ export type LoginDetailsDispatchProps = {
     setCountry: (countryCode: string) => void
 }
 
-export type LoginScreenProps = LoginScreenParamProps &
+export type LoginScreenProps =
+    LoginScreenParamProps &
     LoginDetailsDispatchProps &
     LoginScreenDataProps

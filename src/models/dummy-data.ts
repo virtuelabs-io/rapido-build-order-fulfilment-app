@@ -380,28 +380,22 @@ const barTypeData: DummyDataBarType[] = [
 ]
 
 const shirtSizes: DummyDataPieType[] = [{
-    size: "L",
+    size: "Large",
     noOfOrders: 449
   }, {
-    size: "2XL",
+    size: "Double XL",
     noOfOrders: 580
   }, {
-    size: "XS",
+    size: "Extra Small",
     noOfOrders: 590
   }, {
-    size: "L",
+    size: "Large",
     noOfOrders: 196
   }, {
-    size: "XS",
-    noOfOrders: 846
-  }, {
-    size: "M",
+    size: "Medium",
     noOfOrders: 825
   }, {
-    size: "M",
-    noOfOrders: 644
-  }, {
-    size: "3XL",
+    size: "Triple XL",
     noOfOrders: 744
   }]
 export const DummyData: DummyDataType = {

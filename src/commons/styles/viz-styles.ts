@@ -1,29 +1,9 @@
 import { Colors } from './colors';
-// *
-// * Colors
-// *
-const colors = ["#252525", "#525252", "#737373", "#969696", "#bdbdbd", "#d9d9d9", "#f0f0f0"];
 
-const charcoal = "#252525";
-const grey = "#969696";
-// *
-// * Typography
-// *
 const sansSerif = "'Gill Sans', 'Gill Sans MT', 'Seravek', 'Trebuchet MS', sans-serif";
 const letterSpacing = "normal";
 const fontSize = 12;
-// *
-// * Layout
-// *
-const baseProps = {
-    width: 300,
-    height: 500,
-    padding: 5,
-    colorScale: colors
-};
-// *
-// * Labels
-// *
+
 const baseLabelStyles = {
     fontFamily: sansSerif,
     fontSize,
@@ -33,9 +13,11 @@ const baseLabelStyles = {
     stroke: "transparent"
 };
 
-export type ChartBaseProps = {
-    height: any
-    padding: any
+export type BarChartBaseProps = {
+    title: string
+    height: number
+    widthPercent: number
+    paddingPercent: number
     domain: {
         y: [number, number]
     }
@@ -47,16 +29,38 @@ export type ChartBaseProps = {
     axisStyles: any
 }
 
+export type PieChartBaseProps = {
+    title: string
+    widthPercent: number
+    paddingPercent: number
+    animation: {
+        duration: number
+    }
+    axisStyles: any
+    styles: any
+    colorScheme: string[]
+}
+
 export type BarChartProps = {
-    chartBaseProps: ChartBaseProps
+    chartBaseProps: BarChartBaseProps
     data: any[],
     xFunc: (datum: any) => any
     yFunc: (datum: any) => any
 }
 
-const chartBaseProps: ChartBaseProps = {
+export type PieChartProps = {
+    chartBaseProps: PieChartBaseProps
+    data: any[],
+    xFunc: (datum: any) => any
+    yFunc: (datum: any) => any
+    dimField: string
+}
+
+const barChartBaseProps: BarChartBaseProps = {
+    title: "60 Day Trend",
     height: 100,
-    padding: 10,
+    paddingPercent: 0.01,
+    widthPercent: 0.79,
     animation: {
         duration: 500
     },
@@ -72,16 +76,47 @@ const chartBaseProps: ChartBaseProps = {
     },
     generalStyles: {
         data: {
-            fill: Colors.warning,
+            fill: Colors.codes.vizColor,
             padding: 8,
             strokeWidth: 0
         }
     }
 }
 
+const pieChartBaseProps: PieChartBaseProps = {
+    title: "Status Break Down",
+    paddingPercent: 0.01,
+    widthPercent: 0.79,
+    animation: {
+        duration: 500
+    },
+    styles: {
+        data: {
+            padding: 8,
+            strokeWidth: 0.5,
+            stroke: Colors.codes.grayLight
+        }
+    },
+    axisStyles: {
+        axis: { stroke: "transparent" },
+        ticks: { stroke: "transparent" },
+        tickLabels: { fill: "transparent" },
+        labels: baseLabelStyles
+    },
+    colorScheme: Colors.colorScheme
+}
+
 export const barChartProps = {
-    chartBaseProps: chartBaseProps,
+    chartBaseProps: barChartBaseProps,
     data: [],
     xFunc: (datum: any) => datum.x,
     yFunc: (datum: any) => datum.y
+}
+
+export const pieChartProps = {
+    chartBaseProps: pieChartBaseProps,
+    data: [],
+    xFunc: (datum: any) => datum.x,
+    yFunc: (datum: any) => datum.y,
+    dimField: "y"
 }

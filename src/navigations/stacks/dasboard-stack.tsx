@@ -1,7 +1,7 @@
 import React from 'react';
 import { DashboardStackNavigationParamsType, RootStackParamsType } from '../../store/core/types'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
-import { DashboardScreen } from '../../scenes'
+import DashboardScreen  from '../../scenes/dashboard-screen/view'
 
 
 const DashboardStackNavigator = createStackNavigator<DashboardStackNavigationParamsType>();
