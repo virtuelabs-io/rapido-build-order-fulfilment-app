@@ -42,14 +42,16 @@ const getItemDetails = (state: OrdersStateType, orderId: number): OrdersStateTyp
     console.log(`Order received: ${orderId}`)
     return {
         ...state,
-        itemRecords: DummyData.orderItemDetails.filter(item => item.orderId === orderId)
+        itemRecords: DummyData.orderItemDetails.filter(item => item.orderId === orderId),
+        selectedOrderId: orderId
     }
 }
 
-const getOrderEvents = (state: OrdersStateType, data: any): OrdersStateType => {
+const getOrderEvents = (state: OrdersStateType, orderId: number): OrdersStateType => {
     return {
         ...state,
-        orderEvents: DummyData.orderEvents
+        orderEvents: DummyData.orderEvents.filter(item => item.orderId === orderId),
+        selectedOrderId: orderId
     }
 }
 
@@ -70,7 +72,7 @@ export const OrdersReducer = (state = OrdersInitialState, action: OrdersActionTy
             console.log(`Reduce forwarding: ${action.orderId}`)
             return getItemDetails(state, action.orderId)
         case GET_ORDER_EVENTS:
-            return getOrderEvents(state, action.data)
+            return getOrderEvents(state, action.orderId)
         default:
             return state
     }

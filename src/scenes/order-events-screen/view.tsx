@@ -8,7 +8,7 @@ import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 
 class OrderEventsScreen extends React.Component<OrderEventsScreenProps, OrderEventsScreenState> {
-    constructor(props: OrderEventsScreenProps, state: OrderEventsScreenState) {
+    constructor(props: OrderEventsScreenProps) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
     }

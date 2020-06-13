@@ -1,31 +1,42 @@
 import React, { Dispatch } from 'react'
-import { View, Button } from 'react-native'
-import { RText } from '../../components/atoms'
+import { ScrollView } from 'react-native'
 import Styles from './styles'
 import { OrderDetailsScreenProps, OrderDetailsScreenState, OrderDetailsScreenDispatchProps } from './types'
 import { getStackStyles } from '../../commons/styles';
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
+import { Details } from '../../components/organisms/details/view';
+import { getOrderEvents } from '../../store/orders/actions'
 
 class OrderDetailsScreen extends React.Component<OrderDetailsScreenProps, OrderDetailsScreenState> {
     constructor(props: OrderDetailsScreenProps, state: OrderDetailsScreenState) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
-        console.log(props)
     }
 
-    orderEventsScreenNavigationHandler = () => {
-        // @ts-ignore
-        // REASON: state picked up from redux
-        this.props.navigation.navigate("orderEvents")
+    orderEventsScreenNavigationHandler = (selectedOrder: number) => {
+        try {
+            this.props.selectOrder(selectedOrder)
+        } catch (e) {
+            console.log(e)
+        } finally {
+            // @ts-ignore
+            // REASON: state picked up from redux
+            this.props.navigation.navigate("orderEvents")
+        }
     }
 
     render(): React.ReactNode {
         return (
-            <View style={Styles.screen}>
-                <RText>{this.props.route.params.title}</RText>
-                <Button title="Show Events" onPress={this.orderEventsScreenNavigationHandler}/>
-            </View>
+            <ScrollView style={Styles.screen}>
+                <Details
+                    data={{
+                        items: this.props.data.items,
+                        header: this.props.data.header
+                    }}
+                    onPress={this.orderEventsScreenNavigationHandler.bind(this, this.props.data.header.orderId)}
+                />
+            </ScrollView>
         )
     }
 }
@@ -33,13 +44,16 @@ class OrderDetailsScreen extends React.Component<OrderDetailsScreenProps, OrderD
 const mapStatetoProps = (state: AppState, localProps: OrderDetailsScreenProps): OrderDetailsScreenProps => {
     return {
         ...localProps,
-        data: state.orders.itemRecords
+        data: {
+            items: state.orders.itemRecords,
+            header: state.orders.headerRecords.find(order => order.orderId === state.orders.selectedOrderId)!
+        }
     }
 }
 
 const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): OrderDetailsScreenDispatchProps => {
     return {
-
+        selectOrder: (selectedOrderId: number) => dispatch(getOrderEvents(selectedOrderId))
     }
 }
 

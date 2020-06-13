@@ -7,6 +7,7 @@ const Constants = {
     DEFAULT_COUNTRY_CODE: "GB",
     COUNTRY_CODES: allCountryCodes,
     DEFAULT_ICON: "feather",
+    SPACE: " ",
     FONTS: {
         'laila-bold': require('../../assets/fonts/Laila-Bold.ttf'),
         'laila-light': require('../../assets/fonts/Laila-Light.ttf'),

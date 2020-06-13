@@ -1,17 +1,20 @@
 import { StackScreenProps } from '@react-navigation/stack';
 import { OrdersStackNavigationParamsType } from '../../store/core/types'
-import { OrderItemDetails } from '../../models/orders';
+import { OrderItemDetails, OrderHeader } from '../../models/orders';
 
 export type OrderDetailsScreenParamProps = StackScreenProps<OrdersStackNavigationParamsType, 'orderDetails'>
 
 export type OrderDetailsScreenState = {}
 
 export type OrderDetailsScreenDataProps = {
-    data: OrderItemDetails[]
+    data: {
+        header: OrderHeader
+        items: OrderItemDetails[]
+    }
  }
 
 export type OrderDetailsScreenDispatchProps = {
-
+    selectOrder: (selectedOrderId: number) => void
 }
 
 export type OrderDetailsScreenProps =

@@ -1,6 +1,6 @@
 export type RButtonProps = {
     name: string
-    onPress: () => void
+    onPress: (data?: any) => void
 }
 
 export type  RButtonState = {

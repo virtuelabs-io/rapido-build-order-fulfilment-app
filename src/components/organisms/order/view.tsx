@@ -10,6 +10,7 @@ import { OrderStatus } from '../../atoms/order-status/view';
 import { Feather } from '@expo/vector-icons';
 import { Colors } from '../../../commons/styles/colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+import Constants from '../../../commons/constants/index';
 
 export class Order extends React.Component<OrderProps, OrderState> {
     constructor(props: OrderProps) {
@@ -30,7 +31,7 @@ export class Order extends React.Component<OrderProps, OrderState> {
                 <View style={Styles.rightContainer}>
                     <OrderStatus>{this.props.data.orderStatus.toLocaleUpperCase()}</OrderStatus>
                     <RText>Value</RText>
-                    <RPriceText>{this.props.data.currency}{this.props.data.orderPrice}</RPriceText>
+                    <RPriceText>{[this.props.data.currency, Constants.SPACE, this.props.data.orderPriceTotal].concat()}</RPriceText>
                 </View>
             </TouchableOpacity>
         )

@@ -20,12 +20,28 @@ const getFontFamily = (): string => {
     return Platform.OS === "android" ? 'arima-madurai' : 'arima-madurai'
 }
 
+const getMediumFontFamily = (): string => {
+    return Platform.OS === "android" ? 'arima-madurai-medium' : 'arima-madurai-medium'
+}
+
+const getLightFontFamily = (): string => {
+    return Platform.OS === "android" ? 'arima-madurai-light' : 'arima-madurai-light'
+}
+
+const getELightFontFamily = (): string => {
+    return Platform.OS === "android" ? 'arima-madurai-elight' : 'arima-madurai-elight'
+}
+
 const Utils = {
     getFontFamily: getFontFamily,
     getTabTitleFontFamily: getTabTitleFontFamily,
     getHeadingFontFamily: getHeadingFontFamily,
     getTitleFontFamily: getTitleFontFamily,
-    getThinFontFamily: getThinFontFamily
+    getThinFontFamily: getThinFontFamily,
+    getMediumFontFamily: getMediumFontFamily,
+    getLightFontFamily: getLightFontFamily,
+    getELightFontFamily: getELightFontFamily
+
 }
 
 export default Utils

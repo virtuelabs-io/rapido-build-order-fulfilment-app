@@ -1,3 +1,9 @@
+export type comment = {
+    id: number
+    commentedOn: string
+    text: string
+    commentedBy: string
+}
 export type OrderHeader = {
     orderId: number
     receiptEmail: string
@@ -20,6 +26,8 @@ export type OrderHeader = {
     currency: string
     changedBy: string
     lastUpdatedOn: string
+    assignedTo: string
+    comments: comment[]
 }
 
 export type OrderItemDetails = {

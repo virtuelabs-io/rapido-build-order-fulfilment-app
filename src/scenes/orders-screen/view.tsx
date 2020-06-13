@@ -6,8 +6,7 @@ import { getStackStyles } from '../../commons/styles';
 import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getAllOrderHeaders, getItemDetails } from '../../store/orders/actions';
-import { Order } from '../../components/molecules/order/view';
-import { OrderHeader } from '../../models/orders';
+import { Order } from '../../components/organisms/order/view';
 
 class OrdersScreen extends React.Component<OrdersScreenProps, OrdersScreenState> {
     constructor(props: OrdersScreenProps) {

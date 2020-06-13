@@ -13,11 +13,16 @@ export class OrderStatus extends React.Component<OrderStatusProps, OrderStatusSt
     }
 
     render(): React.ReactNode {
+        if (this.props.children) {
+            return (
+                <View style={Styles.orderStatusContainer}>
+                    <Feather name="rss" size={18} color={Colors.primary} />
+                    <Text style={Styles.orderStatusText}>{this.props.children}</Text>
+                </View>
+            );
+        }
         return (
-            <View style={Styles.orderStatusContainer}>
-                <Feather name="rss" size={18} color={Colors.primary} />
-                <Text style={Styles.orderStatusText}>{this.props.children}</Text>
-            </View>
-        );
+            <View></View>
+        )
     }
 }
