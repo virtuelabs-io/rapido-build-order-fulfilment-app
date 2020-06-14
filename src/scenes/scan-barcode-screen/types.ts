@@ -7,7 +7,7 @@ export type ScanBarcodeScreenParamProps = StackScreenProps<OrdersStackNavigation
 export type ScanBarcodeScreenState = {}
 
 export type ScanBarcodeScreenDataProps = {
-
+    selectOrder: (selectedOrderId: number) => void
 }
 
 export type ScanBarcodeScreenDispatchProps = { }

@@ -1,11 +1,33 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../commons/styles/colors';
 
 export const Styles = StyleSheet.create({
-  screen: {
+    screen: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'flex-end',
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: "5%"
+    },
+    scannerContainer: {
+        width: "100%",
+        height: "70%",
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 10,
+        borderWidth: 3,
+        borderColor: Colors.codes.silver,
+        borderStyle: 'dashed'
+    },
+    scanner: {
+        width: "90%",
+        height: "90%",
+        borderRadius: 10
+    },
+    buttonContainer: {
+        width: "80%"
     }
+
 })
 
 export default Styles
