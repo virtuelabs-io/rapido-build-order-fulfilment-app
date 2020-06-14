@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { Colors } from '../../commons/styles/colors';
 
 export const Styles = StyleSheet.create({
   screen: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center'
+        flex: 1,
+        paddingHorizontal: "5%",
+        paddingVertical: 10
   }
 })
 

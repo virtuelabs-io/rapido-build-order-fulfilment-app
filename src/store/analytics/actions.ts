@@ -3,6 +3,7 @@ export const SET_ALL_ORDERS_DATA = 'SET_ALL_ORDERS_DATA'
 export const SET_ALL_DELIVERIES_DATA = 'SET_ALL_DELIVERIES_DATA'
 export const SET_ALL_RETURNS_DATA = 'SET_ALL_RETURNS_DATA'
 export const SET_30_DAY_SUMMARY_DATA = 'SET_30_DAY_SUMMARY_DATA'
+export const SET_ACK_INSIGHT = 'SET_ACK_INSIGHT'
 
 export interface SetTodaysKPIs {
     type: typeof SET_TODAYS_KPIS
@@ -30,6 +31,10 @@ export interface Set30DaySummaryData {
     data: any
 }
 
+export interface SetAckInsight {
+    type: typeof SET_ACK_INSIGHT
+    insightId: number
+}
 
 export type AnalyticsActionTypes =
     SetTodaysKPIs
@@ -37,6 +42,7 @@ export type AnalyticsActionTypes =
     | SetDeliveriesData
     | SetReturnsData
     | Set30DaySummaryData
+    | SetAckInsight
 
 export const setTodaysKPIs = (data: any): AnalyticsActionTypes => {
     return {
@@ -70,5 +76,12 @@ export const set30DaySummaryData = (data: any): AnalyticsActionTypes => {
     return {
         type: SET_30_DAY_SUMMARY_DATA,
         data: data
+    }
+}
+
+export const setAckInsight = (insightId: number): AnalyticsActionTypes => {
+    return {
+        type: SET_ACK_INSIGHT,
+        insightId: insightId
     }
 }

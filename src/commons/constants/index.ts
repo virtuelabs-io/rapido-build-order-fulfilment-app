@@ -8,6 +8,10 @@ const Constants = {
     COUNTRY_CODES: allCountryCodes,
     DEFAULT_ICON: "feather",
     SPACE: " ",
+    DEFAULT_TEXT: {
+        insightsText1: "Looks like you are all caught with your business insights",
+        insightsText2: "We will keep you informed about any business insights we find based on your data"
+    },
     FONTS: {
         'laila-bold': require('../../assets/fonts/Laila-Bold.ttf'),
         'laila-light': require('../../assets/fonts/Laila-Light.ttf'),

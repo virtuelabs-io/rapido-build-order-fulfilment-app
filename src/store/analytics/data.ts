@@ -2,7 +2,7 @@ import { AnalyticsStateType } from './types'
 import { barChartProps } from '../../commons/styles'
 import { DummyData } from '../../models/dummy-data';
 import { pieChartProps } from '../../commons/styles/viz-styles';
-
+import { PERCENTAGE, ACTUAL, GOOD, SEVERE, INFO, WARNING } from './types'
 
 export const AnalyticsInitialState: AnalyticsStateType = {
     today: {
@@ -107,5 +107,47 @@ export const AnalyticsInitialState: AnalyticsStateType = {
         xFunc: (datum: any) => datum.size,
         yFunc: (datum: any) => datum.noOfOrders,
         dimField: "noOfOrders"
-    }
+    },
+    notifications: [
+        {
+            id: 1,
+            value: 0.11,
+            units: PERCENTAGE,
+            text: "Number of Orders received have been growing steadily by {value} over last 4 weeks",
+            type: GOOD,
+            ack: false
+        },
+        {
+            id: 2,
+            value: 0.60,
+            units: PERCENTAGE,
+            text: "Cosmetics seem to be the most commonly purchased across your products. Its share of total units sold is around {value}",
+            type: GOOD,
+            ack: false
+        },
+        {
+            id: 3,
+            value: 20,
+            units: ACTUAL,
+            text: "There seem to be around {value} orders which have been returned",
+            type: WARNING,
+            ack: false
+        },
+        {
+            id: 4,
+            value: 1224,
+            units: ACTUAL,
+            text: "You seem to have sold {value} units across all your products in the last 30 days",
+            type: INFO,
+            ack: false
+        },
+        {
+            id: 5,
+            value: 0.7,
+            units: PERCENTAGE,
+            text: "We have noticed a drop in sales for luxery items by {value}",
+            type: SEVERE,
+            ack: false
+        }
+    ]
 }
