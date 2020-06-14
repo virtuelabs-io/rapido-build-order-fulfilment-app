@@ -11,7 +11,11 @@ import { getOrderEvents } from '../../store/orders/actions'
 class OrderDetailsScreen extends React.Component<OrderDetailsScreenProps, OrderDetailsScreenState> {
     constructor(props: OrderDetailsScreenProps, state: OrderDetailsScreenState) {
         super(props)
-        this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+        this.props.navigation.setOptions(getStackStyles(
+            this.props.route.params.title,
+            "edit-3",
+            () => { console.log("Button Pressed") }
+        ))
     }
 
     orderEventsScreenNavigationHandler = (selectedOrder: number) => {

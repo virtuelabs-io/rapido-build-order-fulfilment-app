@@ -16,7 +16,11 @@ class DashboardScreen extends React.Component<DashboardScreenProps, DashboardScr
 
     constructor(props: DashboardScreenProps, state: DashboardScreenState) {
         super(props)
-        this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+        this.props.navigation.setOptions(getStackStyles(
+            this.props.route.params.title,
+            "bell",
+            () => { console.log("Button Pressed") }
+        ))
     }
 
     render(): React.ReactNode {

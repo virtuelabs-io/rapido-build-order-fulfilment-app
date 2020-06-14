@@ -7,11 +7,28 @@ import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { getAllOrderHeaders, getItemDetails } from '../../store/orders/actions';
 import { Order } from '../../components/organisms/order/view';
+import { RAntIconButton } from '../../components/atoms/r-ant-icon-button/view';
 
 class OrdersScreen extends React.Component<OrdersScreenProps, OrdersScreenState> {
     constructor(props: OrdersScreenProps) {
         super(props)
-        this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
+        var options = getStackStyles(
+            this.props.route.params.title,
+            "sliders",
+            () => { console.log("Button Pressed") }
+        )
+        options = {
+            ...options,
+            headerLeft: () => (
+                <RAntIconButton
+                    icon="scan1"
+                    size={28}
+                    onPress={() => { console.log("Button Pressed") }}
+                />
+            )
+        }
+
+        this.props.navigation.setOptions(options)
     }
 
     detailsNavigationHandler = (selectedOrder: number) => {

@@ -1,9 +1,12 @@
+import React from 'react';
+import { Button } from 'react-native';
 import { Platform } from "react-native"
 import { Colors } from './colors';
 import Utils from '../utils/index';
 import { BottomTabBarOptions } from "@react-navigation/bottom-tabs";
 import { StackNavigationOptions } from "@react-navigation/stack";
 import Constants from '../constants/index';
+import { RFeatherIconButton } from '../../components/atoms/r-icon-button/view';
 
 
 
@@ -25,13 +28,30 @@ export const StackStyleConstants = {
     }
 }
 
-export const getStackStyles = (title: string): StackNavigationOptions => {
-    return {
+
+export const getStackStyles = (title: string, icon?: string, buttonOnPress?: (data?: any) => void): StackNavigationOptions => {
+    var options: StackNavigationOptions = {
         title: title,
         headerStyle: StackStyleConstants.headerStyle,
         headerTintColor: StackStyleConstants.headerTintColor,
         headerTitleStyle: StackStyleConstants.headerTitleStyle,
         headerBackTitleStyle: StackStyleConstants.headerBackTitleStyle
+    }
+    if (icon && buttonOnPress) {
+        options = {
+            ...options,
+            headerRight: () => (
+                <RFeatherIconButton
+                    icon={icon}
+                    onPress={buttonOnPress}
+                    size={28}
+                />
+            )
+        }
+    }
+
+    return {
+        ...options
     }
 }
 

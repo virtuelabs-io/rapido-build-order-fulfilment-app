@@ -28,6 +28,9 @@ export const Styles = StyleSheet.create({
         fontFamily: Utils.getTitleFontFamily(),
         fontSize: 22,
         color: Colors.alternatePrimary,
+    },
+    turner: {
+        transform: [{ rotate: '180deg'}]
     }
 });
 
