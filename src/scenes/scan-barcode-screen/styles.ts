@@ -24,10 +24,11 @@ export const Styles = StyleSheet.create({
         height: "90%",
         borderRadius: 10
     },
-    buttonContainer: {
-        width: "80%"
+    infoContainer: {
+        width: "80%",
+        justifyContent: 'center',
+        alignItems: 'center'
     }
-
 })
 
 export default Styles

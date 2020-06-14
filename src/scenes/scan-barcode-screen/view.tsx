@@ -73,7 +73,7 @@ class ScanBarcodeScreen extends React.Component<ScanBarcodeScreenProps, ScanBarc
                     />
                 </View>
                 {scanned && (
-                    <View style={Styles.buttonContainer}>
+                    <View style={Styles.infoContainer}>
                         <AntDesign name="barcode" size={96} color={Colors.codes.black} />
                         <RTitleText>{this.state.code}</RTitleText>
                         <RButton
@@ -104,4 +104,3 @@ const mapDispatchToProps = (dispatch: Dispatch<AppActionTypes>): ScanBarcodeScre
 }
 
 export default connect(mapStatetoProps, mapDispatchToProps)(ScanBarcodeScreen)
-
