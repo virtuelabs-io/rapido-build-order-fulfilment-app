@@ -70,7 +70,7 @@ export class Details extends React.Component<DetailsProps, DetailsState> {
                             />
                         )
                     })}
-                    <RButton name="Add Comment" onPress={() => { }}/>
+                    <RButton name="Add Comment" onPress={this.props.data.addCommentHandler}/>
                 </Card>
             </View>
         )

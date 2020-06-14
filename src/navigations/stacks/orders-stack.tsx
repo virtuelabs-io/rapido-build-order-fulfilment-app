@@ -4,6 +4,10 @@ import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import OrderDetailsScreen from '../../scenes/order-details-screen/view'
 import OrdersScreen from '../../scenes/orders-screen/view'
 import OrderEventsScreen from '../../scenes/order-events-screen/view';
+import EditOrderScreen from '../../scenes/edit-order-screen/view';
+import FilterOrdersScreen from '../../scenes/filter-orders-screen/view';
+import ScanBarcodeScreen from '../../scenes/scan-barcode-screen/view';
+import AddCommentScreen from '../../scenes/add-comment-screen/view';
 
 
 const OrdersStackNavigator = createStackNavigator<OrdersStackNavigationParamsType>();
@@ -32,6 +36,26 @@ export class OrdersStackNavigation extends React.Component<OrdersStackScreenProp
                     name="orderEvents"
                     component={OrderEventsScreen}
                     initialParams={this.props.route.params.orderEvents}
+                />
+                <OrdersStackNavigator.Screen
+                    name="editOrder"
+                    component={EditOrderScreen}
+                    initialParams={this.props.route.params.editOrder}
+                />
+                <OrdersStackNavigator.Screen
+                    name="filterOrders"
+                    component={FilterOrdersScreen}
+                    initialParams={this.props.route.params.filterOrders}
+                />
+                <OrdersStackNavigator.Screen
+                    name="scanBarcode"
+                    component={ScanBarcodeScreen}
+                    initialParams={this.props.route.params.scanBarcode}
+                />
+                <OrdersStackNavigator.Screen
+                    name="addComment"
+                    component={AddCommentScreen}
+                    initialParams={this.props.route.params.addComment}
                 />
 			</OrdersStackNavigator.Navigator>
 		)

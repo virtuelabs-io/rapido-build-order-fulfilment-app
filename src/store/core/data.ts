@@ -20,6 +20,9 @@ export const CoreReduxInitialState: CoreReduxStateType = {
         dashboardStack: {
             dashboard: {
                 title: "Dashboard"
+            },
+            insights: {
+                title: "Insights"
             }
         },
         ordersStack: {
@@ -31,7 +34,19 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             orderEvents: {
                 title: "Events"
-            }
+            },
+            filterOrders: {
+                title: "Filters"
+            },
+            scanBarcode: {
+                title: "Scan Order"
+            },
+            editOrder: {
+                title: "Edit Order"
+            },
+            addComment: {
+                title: "Add Comment"
+            },
         },
         settingsStack: {
             settings: {

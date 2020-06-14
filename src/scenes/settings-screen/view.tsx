@@ -5,7 +5,7 @@ import Styles from './styles'
 import { SettingsScreenProps, SettingsScreenState } from './types'
 import { getStackStyles } from '../../commons/styles';
 
-export class SettingsScreen extends React.Component<SettingsScreenProps, SettingsScreenState> {
+class SettingsScreen extends React.Component<SettingsScreenProps, SettingsScreenState> {
     constructor(props: SettingsScreenProps) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
@@ -26,3 +26,5 @@ export class SettingsScreen extends React.Component<SettingsScreenProps, Setting
         )
     }
 }
+
+export default SettingsScreen

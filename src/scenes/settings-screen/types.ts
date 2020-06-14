@@ -6,6 +6,13 @@ export type SettingsScreenParamProps = StackScreenProps<SettingsStackNavigationP
 
 export type SettingsScreenState = {}
 
+export type SettingsScreenDataProps = {
+
+}
+
 export type SettingsScreenDispatchProps = { }
 
-export type SettingsScreenProps = SettingsScreenParamProps & SettingsScreenDispatchProps
+export type SettingsScreenProps =
+    SettingsScreenParamProps &
+    SettingsScreenDispatchProps &
+    SettingsScreenDataProps

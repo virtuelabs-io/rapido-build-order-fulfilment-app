@@ -19,7 +19,11 @@ class DashboardScreen extends React.Component<DashboardScreenProps, DashboardScr
         this.props.navigation.setOptions(getStackStyles(
             this.props.route.params.title,
             "bell",
-            () => { console.log("Button Pressed") }
+            () => {
+                // @ts-ignore
+                // REASON: state picked up from redux
+                this.props.navigation.navigate("insights")
+            }
         ))
     }
 
@@ -33,21 +37,21 @@ class DashboardScreen extends React.Component<DashboardScreenProps, DashboardScr
                 <RHeadingText>All Orders</RHeadingText>
                 <Card>
                     <FourKPI data={this.props.data.analyticsData.allOrders.kpiHolder} />
-                    <RBarChart data={{ barChartProps: this.props.data.analyticsData.allOrders.viz }}/>
+                    <RBarChart data={{ barChartProps: this.props.data.analyticsData.allOrders.viz }} />
                 </Card>
                 <RHeadingText>Deliveries</RHeadingText>
                 <Card>
                     <FourKPI data={this.props.data.analyticsData.deliveries.kpiHolder} />
-                    <RBarChart data={{ barChartProps: this.props.data.analyticsData.deliveries.viz }}/>
+                    <RBarChart data={{ barChartProps: this.props.data.analyticsData.deliveries.viz }} />
                 </Card>
                 <RHeadingText>Returns</RHeadingText>
                 <Card>
                     <FourKPI data={this.props.data.analyticsData.returns.kpiHolder} />
-                    <RBarChart data={{ barChartProps: this.props.data.analyticsData.returns.viz }}/>
+                    <RBarChart data={{ barChartProps: this.props.data.analyticsData.returns.viz }} />
                 </Card>
                 <RHeadingText>30 Day Summary</RHeadingText>
                 <Card>
-                    <RPieChart data={{ pieChartProps: this.props.data.analyticsData.summary }}/>
+                    <RPieChart data={{ pieChartProps: this.props.data.analyticsData.summary }} />
                 </Card>
             </ScrollView>
         )

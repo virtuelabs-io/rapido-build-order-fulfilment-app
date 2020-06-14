@@ -14,7 +14,11 @@ class OrderDetailsScreen extends React.Component<OrderDetailsScreenProps, OrderD
         this.props.navigation.setOptions(getStackStyles(
             this.props.route.params.title,
             "edit-3",
-            () => { console.log("Button Pressed") }
+            () => {
+                // @ts-ignore
+                // REASON: state picked up from redux
+                this.props.navigation.navigate("editOrder")
+             }
         ))
     }
 
@@ -30,13 +34,26 @@ class OrderDetailsScreen extends React.Component<OrderDetailsScreenProps, OrderD
         }
     }
 
+    addCommentScreenNavigationHandler = (selectedOrder: number) => {
+        try {
+            this.props.selectOrder(selectedOrder)
+        } catch (e) {
+            console.log(e)
+        } finally {
+            // @ts-ignore
+            // REASON: state picked up from redux
+            this.props.navigation.navigate("addComment")
+        }
+    }
+
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
                 <Details
                     data={{
                         items: this.props.data.items,
-                        header: this.props.data.header
+                        header: this.props.data.header,
+                        addCommentHandler: this.addCommentScreenNavigationHandler.bind(this, this.props.data.header.orderId)
                     }}
                     onPress={this.orderEventsScreenNavigationHandler.bind(this, this.props.data.header.orderId)}
                 />

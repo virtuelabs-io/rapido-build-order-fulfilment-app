@@ -32,10 +32,25 @@ export type OrdersStackNavigationParamsType = {
     orderEvents: {
         title: string
     }
+    filterOrders: {
+        title: string
+    }
+    scanBarcode: {
+        title: string
+    }
+    editOrder: {
+        title: string
+    }
+    addComment: {
+        title: string
+    }
 }
 
 export type DashboardStackNavigationParamsType = {
     dashboard: {
+        title: string
+    }
+    insights: {
         title: string
     }
 }

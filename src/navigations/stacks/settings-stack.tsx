@@ -1,7 +1,7 @@
 import React from 'react';
 import { SettingsStackNavigationParamsType, RootStackParamsType } from '../../store/core/types'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
-import { SettingsScreen } from '../../scenes'
+import SettingsScreen from '../../scenes/settings-screen/view'
 import ProfileScreen from '../../scenes/profile-screen/view';
 
 

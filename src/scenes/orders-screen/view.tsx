@@ -15,7 +15,11 @@ class OrdersScreen extends React.Component<OrdersScreenProps, OrdersScreenState>
         var options = getStackStyles(
             this.props.route.params.title,
             "sliders",
-            () => { console.log("Button Pressed") }
+            () => {
+                // @ts-ignore
+                // REASON: state picked up from redux
+                this.props.navigation.navigate("filterOrders")
+            }
         )
         options = {
             ...options,
@@ -23,7 +27,11 @@ class OrdersScreen extends React.Component<OrdersScreenProps, OrdersScreenState>
                 <RAntIconButton
                     icon="scan1"
                     size={28}
-                    onPress={() => { console.log("Button Pressed") }}
+                    onPress={() => {
+                        // @ts-ignore
+                        // REASON: state picked up from redux
+                        this.props.navigation.navigate("scanBarcode")
+                    }}
                 />
             )
         }

@@ -4,6 +4,7 @@ export type DetailsProps = {
     data: {
         items: OrderItemDetails[]
         header: OrderHeader
+        addCommentHandler: (selectedOrder: number) => void
     }
     onPress: (selectedOrder: any) => void
 }
