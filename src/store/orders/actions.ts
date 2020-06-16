@@ -1,6 +1,10 @@
+import { OrdersFilters } from "./types"
+
 export const SET_ALL_ORDER_HEADERS = 'SET_ALL_ORDER_HEADERS'
 export const SET_ORDER_HEADER = 'SET_ORDER_HEADER'
 export const SET_ITEM_DETAILS = 'SET_ITEM_DETAILS'
+
+export const SET_FILTERS = 'SET_FILTERS'
 
 export const GET_ALL_ORDER_HEADERS = 'GET_ALL_ORDER_HEADERS'
 export const GET_ORDER_HEADER = 'GET_ORDER_HEADER'
@@ -45,6 +49,11 @@ export interface GetOrderEvents {
     orderId: number
 }
 
+export interface SetFilters {
+    type: typeof SET_FILTERS
+    ordersFilters: OrdersFilters
+}
+
 export type OrdersActionTypes =
     SetAllOrderHeaders
     | SetOrderHeader
@@ -53,6 +62,7 @@ export type OrdersActionTypes =
     | GetOrderHeader
     | GetItemDetails
     | GetOrderEvents
+    | SetFilters
 
 export const setAllOrderHeaders = (data: any): OrdersActionTypes => {
     return {
@@ -101,5 +111,12 @@ export const getOrderEvents = (orderId: number): OrdersActionTypes => {
     return {
         type: GET_ORDER_EVENTS,
         orderId: orderId
+    }
+}
+
+export const setFilters = (ordersFilters: OrdersFilters): OrdersActionTypes => {
+    return {
+        type: SET_FILTERS,
+        ordersFilters: ordersFilters
     }
 }
