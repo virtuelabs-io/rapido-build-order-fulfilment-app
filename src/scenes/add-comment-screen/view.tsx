@@ -1,11 +1,19 @@
 import React from 'react'
-import { View, Button } from 'react-native'
-import { RText } from '../../components/atoms'
+import { View, Button, KeyboardAvoidingView } from 'react-native'
+import { RText, RButton } from '../../components/atoms'
 import Styles from './styles'
 import { AddCommentScreenProps, AddCommentScreenState } from './types'
 import { getStackStyles } from '../../commons/styles';
+import { ScrollView } from 'react-native-gesture-handler'
+import { CommentInput } from '../../components/molecules/comment-input/view'
+import { Card } from '../../components/atoms/card/view';
 
 class AddCommentScreen extends React.Component<AddCommentScreenProps, AddCommentScreenState> {
+
+    state = {
+        value: ""
+    }
+
     constructor(props: AddCommentScreenProps) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
@@ -15,12 +23,28 @@ class AddCommentScreen extends React.Component<AddCommentScreenProps, AddComment
         this.props.navigation.goBack()
     }
 
+    updateValue = (value: string) => {
+        this.setState({ value: value })
+    }
+
     render(): React.ReactNode {
         return (
-            <View style={Styles.screen}>
-                <RText>{this.props.route.params.title}</RText>
-                <Button title="Post" onPress={this.backNavigation} />
-            </View>
+            <ScrollView style={Styles.screen}>
+                <KeyboardAvoidingView behavior="position" keyboardVerticalOffset={30}>
+                    <Card>
+                        <CommentInput
+                            value={this.state.value}
+                            numberOfLines={5}
+                            author="Administrator"
+                            onChange={this.updateValue}
+                            placeholder="Enter your comment"
+                        />
+                    </Card>
+                    <View style={Styles.buttonContainer}>
+                        <RButton name="Add Comment" onPress={this.backNavigation} />
+                    </View>
+                </KeyboardAvoidingView>
+            </ScrollView>
         )
     }
 }

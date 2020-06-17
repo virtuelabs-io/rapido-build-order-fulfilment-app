@@ -8,6 +8,7 @@ import { AppState, AppActionTypes } from '../../store';
 import { connect } from 'react-redux';
 import { setFilters } from '../../store/orders/actions';
 import { OrdersFilters, LAST_7_DAYS, ALL_ORDER_STATUS } from '../../store/orders/types'
+import { FilterHolder } from '../../components/molecules/filter-holder/view'
 
 class FilterOrdersScreen extends React.Component<FilterOrdersScreenProps, FilterOrdersScreenState> {
 
@@ -27,14 +28,69 @@ class FilterOrdersScreen extends React.Component<FilterOrdersScreenProps, Filter
         this.props.navigation.goBack()
     }
 
+    orderNumberFilterScreenNavigationHandler = () => {
+        // @ts-ignore
+        // REASON: state picked up from redux
+        this.props.navigation.navigate('orderNumberFilter')
+    }
+
+    assigneeFilterScreenNavigationHandler = () => {
+        // @ts-ignore
+        // REASON: state picked up from redux
+        this.props.navigation.navigate('assigneeFilter')
+    }
+
+    dueDateFilterScreenNavigationHandler = () => {
+        // @ts-ignore
+        // REASON: state picked up from redux
+        this.props.navigation.navigate('dueDateFilter')
+    }
+
+    orderStatusFilterScreenNavigationHandler = () => {
+        // @ts-ignore
+        // REASON: state picked up from redux
+        this.props.navigation.navigate('orderStatusFilter')
+    }
+
+    createdOnFilterScreenNavigationHandler = () => {
+        // @ts-ignore
+        // REASON: state picked up from redux
+        this.props.navigation.navigate('createdOnFilter')
+    }
+
     render(): React.ReactNode {
         return (
             <ScrollView style={Styles.screen}>
-                <RText>{this.filters.orderStatus}</RText>
-                <RText>{this.filters.createdOn}</RText>
-                <RText>{this.filters.dueDate}</RText>
-                <RText>{this.filters.assignedTo}</RText>
-                <RText>{this.filters.orderNumber}</RText>
+                <FilterHolder
+                    icon="box"
+                    filterTitle="Order Number"
+                    filterValue={this.props.data.ordersFilters.orderNumber?.toString()}
+                    navigationFunc={this.orderNumberFilterScreenNavigationHandler}
+                />
+                <FilterHolder
+                    icon="cast"
+                    filterTitle="Order Status"
+                    filterValue={this.props.data.ordersFilters.orderStatus.replaceAll("_", " ")}
+                    navigationFunc={this.orderStatusFilterScreenNavigationHandler}
+                />
+                <FilterHolder
+                    icon="calendar"
+                    filterTitle="Created On"
+                    filterValue={this.props.data.ordersFilters.createdOn.replaceAll("_", " ")}
+                    navigationFunc={this.createdOnFilterScreenNavigationHandler}
+                />
+                <FilterHolder
+                    icon="calendar"
+                    filterTitle="Due Date"
+                    filterValue={this.props.data.ordersFilters.dueDate?.replaceAll("_", " ")}
+                    navigationFunc={this.dueDateFilterScreenNavigationHandler}
+                />
+                <FilterHolder
+                    icon="users"
+                    filterTitle="Assignee"
+                    filterValue={this.props.data.ordersFilters.assignedTo}
+                    navigationFunc={this.assigneeFilterScreenNavigationHandler}
+                />
                 <View style={Styles.buttonContianer}>
                     <RButton name="Filter" onPress={this.backNavigation} />
                 </View>

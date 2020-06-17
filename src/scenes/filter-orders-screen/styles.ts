@@ -4,8 +4,8 @@ import { Colors } from '../../commons/styles/colors';
 export const Styles = StyleSheet.create({
   screen: {
         flex: 1,
-        padding: 10,
-      backgroundColor: Colors.secondary
+        paddingHorizontal: "5%",
+        backgroundColor: Colors.secondary
     },
     buttonContianer: {
         paddingVertical: 10,

@@ -1,4 +1,4 @@
-export type comment = {
+export type Comment = {
     id: number
     commentedOn: string
     text: string
@@ -27,7 +27,7 @@ export type OrderHeader = {
     changedBy: string
     lastUpdatedOn: string
     assignedTo: string
-    comments: comment[]
+    comments: Comment[]
 }
 
 export type OrderItemDetails = {

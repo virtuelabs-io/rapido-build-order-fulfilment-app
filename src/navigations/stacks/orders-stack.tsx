@@ -8,6 +8,11 @@ import EditOrderScreen from '../../scenes/edit-order-screen/view';
 import FilterOrdersScreen from '../../scenes/filter-orders-screen/view';
 import ScanBarcodeScreen from '../../scenes/scan-barcode-screen/view';
 import AddCommentScreen from '../../scenes/add-comment-screen/view';
+import FilterOrderNumberScreen from '../../scenes/filter-order-number-screen/view';
+import FilterAssigneeScreen from '../../scenes/filter-assignee-screen/view';
+import FilterDueDateScreen from '../../scenes/filter-due-date-screen/view';
+import FilterOrderStatusScreen from '../../scenes/filter-order-status-screen/view';
+import FilterCreatedOnScreen from '../../scenes/filter-created-on-screen/view';
 
 
 const OrdersStackNavigator = createStackNavigator<OrdersStackNavigationParamsType>();
@@ -46,6 +51,31 @@ export class OrdersStackNavigation extends React.Component<OrdersStackScreenProp
                     name="filterOrders"
                     component={FilterOrdersScreen}
                     initialParams={this.props.route.params.filterOrders}
+                />
+                <OrdersStackNavigator.Screen
+                    name="orderNumberFilter"
+                    component={FilterOrderNumberScreen}
+                    initialParams={this.props.route.params.orderNumberFilter}
+                />
+                <OrdersStackNavigator.Screen
+                    name="assigneeFilter"
+                    component={FilterAssigneeScreen}
+                    initialParams={this.props.route.params.assigneeFilter}
+                />
+                <OrdersStackNavigator.Screen
+                    name="dueDateFilter"
+                    component={FilterDueDateScreen}
+                    initialParams={this.props.route.params.dueDateFilter}
+                />
+                <OrdersStackNavigator.Screen
+                    name="orderStatusFilter"
+                    component={FilterOrderStatusScreen}
+                    initialParams={this.props.route.params.orderStatusFilter}
+                />
+                <OrdersStackNavigator.Screen
+                    name="createdOnFilter"
+                    component={FilterCreatedOnScreen}
+                    initialParams={this.props.route.params.createdOnFilter}
                 />
                 <OrdersStackNavigator.Screen
                     name="scanBarcode"

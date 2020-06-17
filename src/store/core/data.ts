@@ -38,11 +38,26 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             filterOrders: {
                 title: "Filters"
             },
+            orderNumberFilter: {
+                title: "Search Order"
+            },
+            orderStatusFilter: {
+                title: "Pick a Status"
+            },
+            createdOnFilter: {
+                title: "Created period"
+            },
+            dueDateFilter: {
+                title: "Due date"
+            },
+            assigneeFilter: {
+                title: "Assigned To"
+            },
             scanBarcode: {
                 title: "Scan Order"
             },
             editOrder: {
-                title: "Edit Order"
+                title: "Update Order"
             },
             addComment: {
                 title: "Add Comment"
@@ -61,6 +76,7 @@ export const CoreReduxInitialState: CoreReduxStateType = {
         country: Constants.COUNTRY_CODES.find(country => country.code === Constants.DEFAULT_COUNTRY_CODE)!,
         phoneNumber: "",
         password: "",
+        username: "Aministrator",
         auth: {
             signedIn: false,
             authnToken: "",

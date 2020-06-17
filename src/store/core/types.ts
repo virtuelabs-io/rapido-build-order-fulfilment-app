@@ -35,6 +35,21 @@ export type OrdersStackNavigationParamsType = {
     filterOrders: {
         title: string
     }
+    orderNumberFilter: {
+        title: string
+    }
+    orderStatusFilter: {
+        title: string
+    }
+    createdOnFilter: {
+        title: string
+    }
+    dueDateFilter: {
+        title: string
+    }
+    assigneeFilter: {
+        title: string
+    }
     scanBarcode: {
         title: string
     }
@@ -78,6 +93,7 @@ export type CoreReduxStateType = {
         phoneNumber: string
         password: string
         auth: Authentication
+        username: string
         resetPassword: {
             otp: string,
             newPassword: string
