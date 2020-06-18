@@ -1,6 +1,4 @@
 import React from 'react';
-import { Button } from 'react-native';
-import { Platform } from "react-native"
 import { Colors } from './colors';
 import Utils from '../utils/index';
 import { BottomTabBarOptions } from "@react-navigation/bottom-tabs";
@@ -12,7 +10,7 @@ import { RFeatherIconButton } from '../../components/atoms/r-icon-button/view';
 
 export const StackStyleConstants = {
     headerStyle: {
-        backgroundColor: Platform.OS === "android" ? Colors.primary : Colors.codes.white,
+        backgroundColor: Colors.secondary,
         borderBottomWidth: 1,
         borderBottomColor: Colors.codes.grayLighter,
         shadowColor: Colors.codes.black,
