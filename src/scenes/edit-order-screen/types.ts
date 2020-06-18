@@ -7,7 +7,9 @@ export type EditOrderScreenParamProps = StackScreenProps<OrdersStackNavigationPa
 export type EditOrderScreenState = {}
 
 export type EditOrderScreenDataProps = {
-
+    orderStatus: string
+    dueDate: string
+    assignee: string
 }
 
 export type EditOrderScreenDispatchProps = { }

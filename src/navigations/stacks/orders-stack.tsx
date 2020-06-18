@@ -13,6 +13,9 @@ import FilterAssigneeScreen from '../../scenes/filter-assignee-screen/view';
 import FilterDueDateScreen from '../../scenes/filter-due-date-screen/view';
 import FilterOrderStatusScreen from '../../scenes/filter-order-status-screen/view';
 import FilterCreatedOnScreen from '../../scenes/filter-created-on-screen/view';
+import EditOrderStatusScreen from '../../scenes/edit-order-status-screen/view';
+import EditAssigneeScreen from '../../scenes/edit-assignee-screen/view';
+import EditDueDateScreen from '../../scenes/edit-due-date-screen/view';
 
 
 const OrdersStackNavigator = createStackNavigator<OrdersStackNavigationParamsType>();
@@ -46,6 +49,21 @@ export class OrdersStackNavigation extends React.Component<OrdersStackScreenProp
                     name="editOrder"
                     component={EditOrderScreen}
                     initialParams={this.props.route.params.editOrder}
+                />
+                <OrdersStackNavigator.Screen
+                    name="editOrderStatus"
+                    component={EditOrderStatusScreen}
+                    initialParams={this.props.route.params.editOrderStatus}
+                />
+                <OrdersStackNavigator.Screen
+                    name="editAssignee"
+                    component={EditAssigneeScreen}
+                    initialParams={this.props.route.params.editAssignee}
+                />
+                <OrdersStackNavigator.Screen
+                    name="editDueDate"
+                    component={EditDueDateScreen}
+                    initialParams={this.props.route.params.editDueDate}
                 />
                 <OrdersStackNavigator.Screen
                     name="filterOrders"

@@ -56,6 +56,15 @@ export type OrdersStackNavigationParamsType = {
     editOrder: {
         title: string
     }
+    editOrderStatus: {
+        title: string
+    }
+    editDueDate: {
+        title: string
+    }
+    editAssignee: {
+        title: string
+    }
     addComment: {
         title: string
     }
@@ -75,7 +84,19 @@ export type SettingsStackNavigationParamsType = {
         title: string
     }
     profile: {
-        title: string;
+        title: string
+    }
+    configuration: {
+        title: string
+    }
+    privacyPolicy: {
+        title: string
+    }
+    termsOfService: {
+        title: string
+    }
+    aboutUs: {
+        title: string
     }
 }
 

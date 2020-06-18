@@ -7,7 +7,7 @@ export type SettingsScreenParamProps = StackScreenProps<SettingsStackNavigationP
 export type SettingsScreenState = {}
 
 export type SettingsScreenDataProps = {
-
+    signOut: (value? : string) => void
 }
 
 export type SettingsScreenDispatchProps = { }

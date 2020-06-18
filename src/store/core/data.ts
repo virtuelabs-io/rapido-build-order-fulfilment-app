@@ -57,7 +57,16 @@ export const CoreReduxInitialState: CoreReduxStateType = {
                 title: "Scan Order"
             },
             editOrder: {
-                title: "Update Order"
+                title: "Update"
+            },
+            editOrderStatus: {
+                title: "Order Status"
+            },
+            editDueDate: {
+                title: "Due Date"
+            },
+            editAssignee: {
+                title: "Assignee"
             },
             addComment: {
                 title: "Add Comment"
@@ -69,6 +78,18 @@ export const CoreReduxInitialState: CoreReduxStateType = {
             },
             profile: {
                 title: "Profile"
+            },
+            configuration: {
+                title: "Configuration"
+            },
+            privacyPolicy: {
+                title: "Privacy Policy"
+            },
+            termsOfService: {
+                title: "Terms Of Service"
+            },
+            aboutUs: {
+               title: "About Us"
             }
         }
     },

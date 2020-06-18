@@ -5,11 +5,17 @@ export const Styles = StyleSheet.create({
     screen: {
         flex: 1,
         paddingHorizontal: "5%",
-        backgroundColor: Colors.secondary
+        backgroundColor: Colors.secondary,
+        justifyContent: 'flex-start',
+        alignContent: 'center'
     },
-    buttonContianer: {
+    headingContainer: {
         paddingVertical: 10,
-        paddingHorizontal: "10%"
+        justifyContent: 'center',
+        alignContent: 'center'
+    },
+    datePickerContianer: {
+        paddingVertical: 10
     }
 })
 

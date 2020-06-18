@@ -2,11 +2,11 @@ import React from 'react'
 import { View } from 'react-native'
 import { RText } from '../../components/atoms'
 import Styles from './styles'
-import { ProfileScreenProps, ProfileScreenState } from './types'
+import { ConfigurationScreenProps, ConfigurationScreenState } from './types'
 import { getStackStyles } from '../../commons/styles';
 
-class ProfileScreen extends React.Component<ProfileScreenProps, ProfileScreenState> {
-    constructor(props: ProfileScreenProps) {
+class ConfigurationScreen extends React.Component<ConfigurationScreenProps, ConfigurationScreenState> {
+    constructor(props: ConfigurationScreenProps) {
         super(props)
         this.props.navigation.setOptions(getStackStyles(this.props.route.params.title))
     }
@@ -20,4 +20,4 @@ class ProfileScreen extends React.Component<ProfileScreenProps, ProfileScreenSta
     }
 }
 
-export default ProfileScreen
+export default ConfigurationScreen

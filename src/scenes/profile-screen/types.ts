@@ -7,7 +7,7 @@ export type ProfileScreenParamProps = StackScreenProps<SettingsStackNavigationPa
 export type ProfileScreenState = { }
 
 export type ProfileScreenDispatchProps = {
-    signOut: () => void
+
 }
 
 export type ProfileScreenProps = ProfileScreenParamProps & ProfileScreenDispatchProps
