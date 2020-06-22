@@ -17,6 +17,12 @@ const fetchFonts = () => {
 export default function App() {
     const [fontLoaded, setFontLoaded] = useState(false);
 
+    if(!String.prototype.replaceAll){
+        String.prototype.replaceAll = function (search, replacement) {
+            return String.prototype.split(search).join(replacement)
+        };
+    }
+    
     if (!fontLoaded) {
         return (
             <AppLoading
